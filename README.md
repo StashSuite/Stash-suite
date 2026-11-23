@@ -20,17 +20,17 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 | :---: | :---: |
 | ![Overview](./docs/images/01_overview.jpg) | ![Mini Player](./docs/images/02_mini_player.jpg) |
 
-| Performer Drawer & Face Strip (Free) | Performer Rarity Card + Player |
+| Performer Drawer & Face Strip (Free) | 9-Screen Grid Player (Free) |
 | :---: | :---: |
-| ![Performer Drawer](./docs/images/04_performer_drawer.jpg) | ![Performer Card](./docs/images/06_performer_card.jpg) |
+| ![Performer Drawer](./docs/images/04_performer_drawer.jpg) | ![Grid Player](./docs/images/07_grid_player.jpg) |
 
-| Manga Viewer (Premium) | Unified Settings (5 Languages & 10 Themes) |
+| Manga Viewer (Premium) | Library Hub — Batch Organizer (Premium) |
 | :---: | :---: |
-| ![Manga Viewer](./docs/images/05_manga_viewer.jpg) | ![Unified Settings](./docs/images/03_settings.jpg) |
+| ![Manga Viewer](./docs/images/05_manga_viewer.jpg) | ![Library Hub](./docs/images/08_library_hub.jpg) |
 
-| 9-Screen Grid Player (Free) | Library Hub — Batch Organizer (Premium) |
-| :---: | :---: |
-| ![Grid Player](./docs/images/07_grid_player.jpg) | ![Library Hub](./docs/images/08_library_hub.jpg) |
+| Unified Settings (5 Languages & 10 Themes) |
+| :---: |
+| ![Unified Settings](./docs/images/03_settings.jpg) |
 
 > **Instant Inline Playback**: Compare Default Stash vs. Stash Mini Player  
 > ![Before and After Player](./docs/images/00_compare_player_before_after.jpg)

@@ -20,17 +20,17 @@
 | :---: | :---: |
 | ![全体一覧](./docs/images/01_overview.jpg) | ![ミニプレイヤー](./docs/images/02_mini_player.jpg) |
 
-| 強化版 女優パネル（Free版） | 出演者レアリティカード＋ミニプレイヤー |
+| 強化版 女優パネル（Free版） | 最大9画面同時再生 Grid Player（Free版） |
 | :---: | :---: |
-| ![女優パネル](./docs/images/04_performer_drawer.jpg) | ![出演者カード](./docs/images/06_performer_card.jpg) |
+| ![女優パネル](./docs/images/04_performer_drawer.jpg) | ![グリッドプレイヤー](./docs/images/07_grid_player.jpg) |
 
-| 専用漫画ビューア（Premium版） | 統合設定画面（5言語・10テーマ・16項目カスタム） |
+| 専用漫画ビューア（Premium版） | Library Hub 整備ハブ（Premium版） |
 | :---: | :---: |
-| ![漫画ビューア](./docs/images/05_manga_viewer.jpg) | ![設定画面](./docs/images/03_settings.jpg) |
+| ![漫画ビューア](./docs/images/05_manga_viewer.jpg) | ![整備ハブ](./docs/images/08_library_hub.jpg) |
 
-| 最大9画面同時再生 Grid Player（Free版） | Library Hub 整備ハブ（Premium版） |
-| :---: | :---: |
-| ![グリッドプレイヤー](./docs/images/07_grid_player.jpg) | ![整備ハブ](./docs/images/08_library_hub.jpg) |
+| 統合設定画面（5言語・10テーマ・16項目カスタム） |
+| :---: |
+| ![設定画面](./docs/images/03_settings.jpg) |
 
 > **再生体験の比較**：標準のページ遷移 vs Stash Mini Player（その場即再生）  
 > ![Before / After 再生比較](./docs/images/00_compare_player_before_after.jpg)
