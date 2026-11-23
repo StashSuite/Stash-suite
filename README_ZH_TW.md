@@ -8,6 +8,22 @@
 - **內建 5 種語言**：繁體中文 / 简体中文 / 日本語 / English / 한국어（自動偵測並可於設定中隨時切換）
 - **跨平台支援**：Windows / macOS / Linux / Docker
 
+![Before / After：預設 Stash vs Stash Suite](./docs/images/00_compare_grid_before_after.jpg)
+
+---
+
+## 介面截圖
+
+| 主畫面總覽（臉部條列・最愛看板・輕量卡片） | Stash Mini Player（Premium：即時播放） |
+| :---: | :---: |
+| ![Overview](./docs/images/01_overview.jpg) | ![Mini Player](./docs/images/02_mini_player.jpg) |
+
+| 強化版演員面板（Free） | 專用漫畫閱讀器（Premium） |
+| :---: | :---: |
+| ![Performer Drawer](./docs/images/04_performer_drawer.jpg) | ![Manga Viewer](./docs/images/05_manga_viewer.jpg) |
+
+![Before / After 播放器比較](./docs/images/00_compare_player_before_after.jpg)
+
 ---
 
 ## 免費版收錄外掛（11 個）

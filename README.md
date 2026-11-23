@@ -8,6 +8,27 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 - **5 Languages Built-in**: English, 日本語 (Japanese), 繁體中文 (Traditional Chinese), 简体中文 (Simplified Chinese), 한국어 (Korean)
 - **Cross-platform**: Windows, macOS, Linux, and Docker
 
+![Before and After: Default Stash vs Stash Suite](./docs/images/00_compare_grid_before_after.jpg)
+
+---
+
+## Screenshots
+
+| Overview (Free + Premium) | Stash Mini Player (Premium) |
+| :---: | :---: |
+| ![Overview](./docs/images/01_overview.jpg) | ![Mini Player](./docs/images/02_mini_player.jpg) |
+
+| Performer Drawer & Face Strip (Free) | Performer Rarity Card + Player |
+| :---: | :---: |
+| ![Performer Drawer](./docs/images/04_performer_drawer.jpg) | ![Performer Card](./docs/images/06_performer_card.jpg) |
+
+| Manga Viewer (Premium) | Unified Settings (5 Languages & 10 Themes) |
+| :---: | :---: |
+| ![Manga Viewer](./docs/images/05_manga_viewer.jpg) | ![Unified Settings](./docs/images/03_settings.jpg) |
+
+> **Instant Inline Playback**: Compare Default Stash vs. Stash Mini Player  
+> ![Before and After Player](./docs/images/00_compare_player_before_after.jpg)
+
 ---
 
 ## Included Plugins in Free Edition (11)

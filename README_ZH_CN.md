@@ -8,6 +8,22 @@
 - **内置 5 种语言**：简体中文 / 繁體中文 / 日本語 / English / 한국어（自动检测并可在设置中随时切换）
 - **跨平台支持**：Windows / macOS / Linux / Docker
 
+![Before / After：默认 Stash vs Stash Suite](./docs/images/00_compare_grid_before_after.jpg)
+
+---
+
+## 界面截图
+
+| 主界面总览（面部横条・收藏看板・轻量卡片） | Stash Mini Player（Premium：即刻播放） |
+| :---: | :---: |
+| ![Overview](./docs/images/01_overview.jpg) | ![Mini Player](./docs/images/02_mini_player.jpg) |
+
+| 增强版演员抽屉（Free） | 专用漫画阅读器（Premium） |
+| :---: | :---: |
+| ![Performer Drawer](./docs/images/04_performer_drawer.jpg) | ![Manga Viewer](./docs/images/05_manga_viewer.jpg) |
+
+![Before / After 播放器对比](./docs/images/00_compare_player_before_after.jpg)
+
 ---
 
 ## 免费版收录插件（11 个）

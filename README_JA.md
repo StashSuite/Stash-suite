@@ -8,6 +8,27 @@
 - **5言語対応**：日本語 / English / 繁體中文 / 简体中文 / 한국어（自動判定＆設定画面から切替可能）
 - **マルチOS対応**：Windows / macOS / Linux / Docker
 
+![Before / After：デフォルトの Stash vs Stash Suite](./docs/images/00_compare_grid_before_after.jpg)
+
+---
+
+## スクリーンショット
+
+| 全体一覧（顔の帯・お気に入りボード・軽量カード） | Stash Mini Player（Premium版：その場即再生） |
+| :---: | :---: |
+| ![全体一覧](./docs/images/01_overview.jpg) | ![ミニプレイヤー](./docs/images/02_mini_player.jpg) |
+
+| 強化版 女優パネル（Free版） | 出演者レアリティカード＋ミニプレイヤー |
+| :---: | :---: |
+| ![女優パネル](./docs/images/04_performer_drawer.jpg) | ![出演者カード](./docs/images/06_performer_card.jpg) |
+
+| 専用漫画ビューア（Premium版） | 統合設定画面（5言語・10テーマ・16項目カスタム） |
+| :---: | :---: |
+| ![漫画ビューア](./docs/images/05_manga_viewer.jpg) | ![設定画面](./docs/images/03_settings.jpg) |
+
+> **再生体験の比較**：標準のページ遷移 vs Stash Mini Player（その場即再生）  
+> ![Before / After 再生比較](./docs/images/00_compare_player_before_after.jpg)
+
 ---
 
 ## Free版 収録プラグイン（11 個）

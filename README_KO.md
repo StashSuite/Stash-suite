@@ -8,6 +8,22 @@
 - **5개 언어 기본 지원**: 한국어 / 日本語 / English / 繁體中文 / 简体中文 (브라우저 언어 자동 감지 및 설정에서 언제든 변경 가능)
 - **멀티 OS 지원**: Windows / macOS / Linux / Docker
 
+![Before / After: 기본 Stash vs Stash Suite](./docs/images/00_compare_grid_before_after.jpg)
+
+---
+
+## 스크린샷
+
+| 메인 목록 (얼굴 스트립·즐겨찾기 보드·경량 카드) | Stash Mini Player (Premium: 즉시 재생) |
+| :---: | :---: |
+| ![Overview](./docs/images/01_overview.jpg) | ![Mini Player](./docs/images/02_mini_player.jpg) |
+
+| 강화 출연자 패널 (Free) | 전용 만화 뷰어 (Premium) |
+| :---: | :---: |
+| ![Performer Drawer](./docs/images/04_performer_drawer.jpg) | ![Manga Viewer](./docs/images/05_manga_viewer.jpg) |
+
+![Before / After 플레이어 비교](./docs/images/00_compare_player_before_after.jpg)
+
 ---
 
 ## 무료 버전 포함 플러그인 (11개)
