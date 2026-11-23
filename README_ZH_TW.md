@@ -2,7 +2,7 @@
 
 [English](./README.md) | [日本語](./README_JA.md) | **繁體中文** | [简体中文](./README_ZH_CN.md) | [한국어](./README_KO.md)
 
-專為 [StashApp](https://stashapp.cc/) 打造的介面與媒體庫強化外掛套組，全面提升瀏覽、播放、整理與閱讀體驗。  
+專為 [StashApp](https://stashapp.cc/) 打造的介面與媒體庫強化外掛套組，針對大量 **JAV、本地影片與漫畫／同人誌收藏** 最佳化，全面提升瀏覽、播放、整理與閱讀體驗。  
 無需安裝額外的 Python 套件（`pip`）或附加伺服器，只需將資料夾複製到 Stash 的 `plugins` 目錄即可立即使用。
 
 - **內建 5 種語言**：繁體中文 / 简体中文 / 日本語 / English / 한국어（自動偵測並可於設定中隨時切換）

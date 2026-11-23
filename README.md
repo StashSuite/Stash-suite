@@ -2,7 +2,7 @@
 
 **English** | [日本語](./README_JA.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [한국어](./README_KO.md)
 
-A drop-in plugin suite that upgrades [StashApp](https://stashapp.cc/)'s browsing, playback, library organization, and reading experience.  
+A drop-in plugin suite that upgrades [StashApp](https://stashapp.cc/)'s browsing, playback, library organization, and reading experience — optimized for large **JAV, local video, and manga / doujinshi** collections.  
 No external Python packages (`pip`) or extra servers required — just copy the folders into your Stash `plugins` directory.
 
 - **5 Languages Built-in**: English, 日本語 (Japanese), 繁體中文 (Traditional Chinese), 简体中文 (Simplified Chinese), 한국어 (Korean)
