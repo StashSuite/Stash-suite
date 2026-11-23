@@ -1,0 +1,8 @@
+name: Sharp Covers
+description: "シーンカードのカバー画像を表示サイズへ高品質に縮小し直して、縮小によるギザギザ（ジャギー）を減らす"
+version: "1.2.0"
+ui:
+  javascript:
+    - sharpCovers.js
+  assets:
+    /lib: lib

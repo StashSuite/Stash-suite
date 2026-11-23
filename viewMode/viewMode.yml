@@ -1,0 +1,13 @@
+name: View Mode
+description: 動画を「女／男／両方」のモードで切り替える（上のメニューのボタン）。動画の一覧・ホーム・おすすめ・出演者の一覧・Binge に効く。漫画には効かない。
+version: "1.0.0"
+ui:
+  requires:
+    - suiteCore
+    - serverStore
+  assets:
+    /: .
+  javascript:
+    - intercept.js
+    - mode.js
+    - bar.js

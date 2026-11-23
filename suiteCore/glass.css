@@ -1,0 +1,358 @@
+/* Suite Core：Liquid Glass の見た目
+   ・上のメニュー・一覧の帯・ページ送りは、下を流れるカードがぼけて透けるガラス
+   ・カードは、表紙を大きくぼかした色が地に透けるガラス（.lc-ambient。Light Cards が置く）
+   ・表紙の上の札（長さ・品番）・出演者・タグも薄いガラス
+   レアリティの光（Card Rarity）・星の黄色はそのまま */
+:root {
+  --lg-bg: linear-gradient(140deg, #ffffff24 0%, #ffffff08 45%, #ffffff12 100%), #121821a6;
+  --lg-bg-strong: linear-gradient(140deg, #ffffff1f 0%, #ffffff08 45%, #ffffff10 100%), #0f141bd9;
+  --lg-blur: blur(22px) saturate(170%);
+  --lg-edge: #ffffff2b;
+  --lg-hi: inset 0 1px 0 #ffffff4d, inset 0 -1px 1px #ffffff0f;
+  --lg-shadow: inset 0 1px 0 #ffffff4d, inset 0 -1px 1px #ffffff0f, 0 10px 30px #0007;
+}
+
+/* ---- 上のメニュー ---- */
+.top-nav.navbar {
+  background: var(--lg-bg-strong) !important;
+  -webkit-backdrop-filter: var(--lg-blur);
+  backdrop-filter: var(--lg-blur);
+  border-bottom: 1px solid #ffffff1a;
+  box-shadow: inset 0 -1px 0 #ffffff0d, 0 6px 24px #0006;
+}
+.top-nav .navbar-nav > .nav-link > a.btn.active { background: #ffffff24 !important; border-radius: 999px; box-shadow: var(--lg-hi); }
+.top-nav .navbar-nav > .nav-link > a.btn:hover { background: #ffffff17 !important; border-radius: 999px; }
+.mt-menu, .vm-menu { border: 1px solid var(--lg-edge) !important; border-radius: 16px !important; background: var(--lg-bg-strong) !important; -webkit-backdrop-filter: var(--lg-blur); backdrop-filter: var(--lg-blur); box-shadow: var(--lg-shadow) !important; }
+.vm-pill { border-color: var(--lg-edge) !important; background: #ffffff0f !important; box-shadow: var(--lg-hi); }
+.ss-launch { border-color: var(--lg-edge) !important; border-radius: 999px !important; background: #ffffff12 !important; box-shadow: var(--lg-hi); }
+
+/* ---- 一覧の上の帯（下にスクロールすると上に残る） ---- */
+.qg-host > .filtered-list-toolbar {
+  background: var(--lg-bg) !important;
+  -webkit-backdrop-filter: var(--lg-blur);
+  backdrop-filter: var(--lg-blur);
+  border-radius: 18px;
+  border: 1px solid #ffffff14;
+  box-shadow: var(--lg-hi);
+}
+.qg-host.qg-stuck > .filtered-list-toolbar { border-radius: 0 0 18px 18px; box-shadow: 0 0 0 100vmax #10151cb3, var(--lg-hi) !important; }
+.qg-stuck-part { background: transparent !important; }
+.filtered-list-toolbar .btn,
+.filtered-list-toolbar .form-control,
+.filtered-list-toolbar .custom-select,
+.qg-sort, .qg-top button, .lc-toolbar .btn {
+  border: 1px solid #ffffff1f !important;
+  background: #ffffff10 !important;
+  box-shadow: inset 0 1px 0 #ffffff26;
+  color: #eef3f8 !important;
+}
+.filtered-list-toolbar .btn:hover, .qg-sort:hover, .qg-top button:hover, .lc-toolbar .btn:hover { background: #ffffff24 !important; }
+.filtered-list-toolbar .btn.active, .filtered-list-toolbar .btn-primary:not(.minimal), .qg-sort.active, .lc-toolbar .btn.active {
+  background: linear-gradient(160deg, #6aa6e8cc, #3a6ea5cc) !important;
+  border-color: #9cc9ff80 !important;
+  box-shadow: inset 0 1px 0 #ffffff59, 0 0 14px #4f88c655 !important;
+  color: #fff !important;
+}
+.filtered-list-toolbar .btn-group > .btn:not(:first-child) { border-left-color: #ffffff12 !important; }
+
+/* 顔の帯 */
+.qg-perf-ring { border-color: #ffffff2e !important; box-shadow: var(--lg-hi), 0 6px 16px #0006; }
+.qg-perf:hover .qg-perf-ring { border-color: #ffffffa0 !important; }
+.qg-perf.active .qg-perf-ring { border-color: #9fd8ff !important; box-shadow: 0 0 0 3px #7fd4ff55, 0 0 18px #7fd4ff66 !important; }
+.qg-band-arrow { border: 1px solid #ffffff1a !important; border-radius: 14px !important; background: #ffffff0d !important; -webkit-backdrop-filter: var(--lg-blur); backdrop-filter: var(--lg-blur); }
+.qg-band-modes { border-right-color: #ffffff14 !important; }
+
+/* ページ送り（下の真ん中に浮く） */
+.pagination-footer-container .pagination,
+.pagination-footer .pagination,
+.pagination-footer-container .btn-group {
+  border: 1px solid var(--lg-edge);
+  border-radius: 999px;
+  background: var(--lg-bg-strong);
+  -webkit-backdrop-filter: var(--lg-blur);
+  backdrop-filter: var(--lg-blur);
+  box-shadow: var(--lg-shadow);
+  overflow: hidden;
+}
+.pagination-footer-container .btn { border: 0 !important; background: transparent !important; color: #eef3f8 !important; }
+.pagination-footer-container .btn:hover:not(:disabled) { background: #ffffff1f !important; }
+
+/* ---- カード ---- */
+.lc-card {
+  isolation: isolate;
+  --lc-bg: transparent;
+  border: 1px solid #ffffff1c !important;
+  border-radius: 18px !important;
+  background: linear-gradient(140deg, #ffffff17 0%, #ffffff05 45%, #ffffff0c 100%), #0d1218e6 !important;
+  box-shadow: inset 0 1px 0 #ffffff2e, 0 10px 28px #0007 !important;
+}
+/* 表紙をぼかした色を地に透かす */
+.lc-card > .lc-ambient {
+  position: absolute;
+  inset: -40px;
+  z-index: -1;
+  background: center / cover no-repeat;
+  filter: blur(30px) saturate(1.7);
+  opacity: 0.42;
+  pointer-events: none;
+}
+.lc-card:hover {
+  border-color: #ffffff3d !important;
+  box-shadow: inset 0 1px 0 #ffffff4d, 0 16px 36px #000a, 0 0 0 1px #ffffff14 !important;
+}
+.lc-card:hover > .lc-ambient { opacity: 0.6; }
+.lc-card.lc-selected { border-color: #9fd8ff !important; box-shadow: 0 0 0 2px #7fd4ff88, inset 0 1px 0 #ffffff4d !important; }
+.lc-cover { border-radius: 14px; margin: 5px 5px 0; }
+.lc-card.lc-side .lc-cover { margin: 5px 0 5px 5px; }
+.lc-card.lc-coveronly .lc-cover { margin: 0; border-radius: 17px; }
+.lc-info { position: relative; }
+.lc-title { color: #fff; text-shadow: 0 1px 2px #0008; }
+.lc-studio, .lc-meta, .lc-head-date { color: #ffffffad !important; }
+.lc-footer { color: #ffffffb3; }
+
+/* 表紙の上の札：小さなガラス */
+.lc-duration, .lc-cover .lc-code:not(.inline), .lc-scrape, .lc-cover-rate.corner .lc-rate, .lc-cover .sp22-card-watch, .lc-bundle {
+  border: 1px solid #ffffff38 !important;
+  border-radius: 999px !important;
+  background: #0d121880 !important;
+  -webkit-backdrop-filter: blur(12px) saturate(170%);
+  backdrop-filter: blur(12px) saturate(170%);
+  box-shadow: inset 0 1px 0 #ffffff40 !important;
+}
+.lc-cover .sp22-card-watch { border-radius: 50% !important; }
+.lc-code.inline { border: 1px solid #ffffff24; border-radius: 999px; background: #ffffff12 !important; }
+.lc-empty { border-color: #ffffff2b; border-radius: 12px; background: #ffffff08; }
+
+/* 出演者・タグ：薄いガラス（レアリティの色は縁と光と文字に） */
+html body .lc-card .lc-tagchip {
+  border: 1px solid #ffffff1f !important;
+  border-radius: 999px !important;
+  background: #ffffff10 !important;
+  color: #eef3f8 !important;
+  box-shadow: inset 0 1px 0 #ffffff1f;
+}
+html body .lc-card .lc-tagchip:hover { background: #ffffff26 !important; }
+html body .lc-card .lc-tagchip.twr-weighted-tag {
+  background: color-mix(in srgb, var(--twr-tone, #fff) 18%, transparent) !important;
+  border-color: color-mix(in srgb, var(--twr-tone, #fff) 55%, transparent) !important;
+  color: #fff !important;
+}
+html body .lc-card a.vsc-performer {
+  border: 1px solid #ffffff2e !important;
+  background: linear-gradient(140deg, #ffffff22, #ffffff08) !important;
+  color: #fff !important;
+  box-shadow: inset 0 1px 0 #ffffff40 !important;
+}
+html body #root .lc-card a.vsc-performer.scr-performer-enabled[data-scr-tier] {
+  background: linear-gradient(140deg, #ffffff22, #ffffff08) !important;
+  border: 1px solid color-mix(in srgb, var(--scr-p-accent, #fff) 60%, transparent) !important;
+  color: #fff !important;
+  box-shadow: inset 0 1px 0 #ffffff40, var(--scr-p-glow, none) !important;
+}
+
+/* カードから開くポップアップ（タグ一覧・表示設定） */
+.lc-panel, .lc-pop {
+  border: 1px solid var(--lg-edge) !important;
+  border-radius: 18px !important;
+  background: var(--lg-bg-strong) !important;
+  -webkit-backdrop-filter: var(--lg-blur);
+  backdrop-filter: var(--lg-blur);
+  box-shadow: var(--lg-shadow) !important;
+}
+
+/* 表紙だけ：マウスを乗せた時の情報の欄も、表紙の下に浮くガラス */
+.lc-coveronly .lc-info {
+  left: 6px !important;
+  right: 6px !important;
+  bottom: 6px !important;
+  padding: 8px 9px 32px !important;
+  border: 1px solid #ffffff38;
+  border-radius: 14px;
+  background: linear-gradient(140deg, #ffffff26, #ffffff08), #0d121866 !important;
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  backdrop-filter: blur(16px) saturate(170%);
+  box-shadow: inset 0 1px 0 #ffffff4d, 0 6px 20px #0006;
+}
+
+/* ===== 2026-11-01 追加：表紙の上の整理・星・サイドパネル ===== */
+/* 表示件数などの選択肢：白地に白文字で読めなかった */
+.filtered-list-toolbar select option, .sidebar select option { background: #1a2029; color: #eef3f8; }
+
+/* 表紙の上：左上＝選択、右上＝スクレイプ・あとで見る（大きく）、左下＝評価・枚組、右下＝長さ（プレビュー中はその位置の時刻） */
+.lc-card .twr-scene-recommend-score { display: none !important; } /* おすすめ順の順位は出さない */
+.lc-card .lc-check { top: 8px; left: 8px; }
+.lc-card .lc-check input {
+  -webkit-appearance: none; appearance: none; display: grid; place-items: center;
+  width: 30px; height: 30px; margin: 0; border: 1px solid #ffffff59; border-radius: 50%;
+  background: #0d121873; -webkit-backdrop-filter: blur(12px) saturate(170%); backdrop-filter: blur(12px) saturate(170%);
+  box-shadow: inset 0 1px 0 #ffffff4d; cursor: pointer;
+}
+.lc-card .lc-check input::after { content: ""; width: 12px; height: 7px; margin-top: -3px; border: solid #fff; border-width: 0 0 2.5px 2.5px; transform: rotate(-45deg); opacity: 0; }
+.lc-card .lc-check input:hover { background: #ffffff33; }
+.lc-card .lc-check input:checked { background: linear-gradient(160deg, #6aa6e8, #3a6ea5); border-color: #b9dcff; }
+.lc-card .lc-check input:checked::after { opacity: 1; }
+.lc-card .lc-scrape, .lc-cover .sp22-card-watch { width: 34px !important; height: 34px !important; top: 8px !important; }
+.lc-cover .sp22-card-watch { right: 8px !important; }
+.lc-card .lc-scrape { right: 50px !important; }
+.lc-card .lc-scrape:hover, .lc-cover .sp22-card-watch:hover { background: #ffffff38 !important; }
+.lc-card .sp-badge { top: auto !important; bottom: 8px; left: 8px; border: 1px solid #ffffff38; border-radius: 999px; background: #0d121880; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.lc-card:has(.lc-cover-rate.corner .lc-rate.rated) .sp-badge { bottom: 40px; }
+/* プレビュー中の時刻は、長さと同じ右下に置き換えて出す（右上はボタン、左下は評価の星と重なっていた） */
+.lc-card .lc-sprite-time { z-index: 6; top: auto; left: auto; right: 6px; bottom: 6px; padding: 2px 8px; border: 1px solid #ffffff38; border-radius: 999px; background: #0d121880; color: #fff; font: 600 12px/1.5 system-ui, sans-serif; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.lc-card.lc-previewing .lc-duration { opacity: 0; }
+
+/* 評価の星：光るガラスの星（評価済みは金色のグラデーション＋にじむ光、未評価は半透明の白） */
+.lc-rate-star, .lc-rate-done > span {
+  color: #ffffff4d !important;
+  text-shadow: 0 1px 0 #ffffff26, 0 0 1px #0008;
+  transition: transform .1s, filter .1s;
+}
+.lc-rate-star.on, .lc-rate-done > span {
+  color: transparent !important;
+  background: linear-gradient(180deg, #fff7c2 0%, #ffd45c 45%, #f0a020 100%);
+  -webkit-background-clip: text; background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 0 4px #ffc94daa) drop-shadow(0 1px 1px #0008);
+}
+.lc-rate-star:hover { transform: scale(1.18); }
+.lc-cover-rate.corner .lc-rate, .lc-cover-rate:not(.corner) {
+  padding: 3px 9px !important; border: 1px solid #ffffff40 !important; border-radius: 999px !important;
+  background: linear-gradient(140deg, #ffffff2e, #ffffff0a), #0d121866 !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%); backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: inset 0 1px 0 #ffffff66, 0 4px 14px #0006 !important;
+}
+.lc-cover-rate:not(.corner) .lc-rate { background: none !important; border: 0 !important; box-shadow: none !important; }
+
+/* ---- 左のサイドパネル（絞り込み） ---- */
+.sidebar-pane > .sidebar, .sidebar {
+  margin: 0; /* 外側に余白を足すと、Stash が空けている幅からはみ出して一番左のカードに重なる */
+  border: 1px solid var(--lg-edge) !important;
+  border-radius: 22px;
+  background: var(--lg-bg-strong) !important;
+  -webkit-backdrop-filter: var(--lg-blur); backdrop-filter: var(--lg-blur);
+  box-shadow: var(--lg-shadow);
+}
+.sidebar .sidebar-section { border-color: #ffffff14 !important; }
+.sidebar .sidebar-section + .sidebar-section { border-top: 1px solid #ffffff12; }
+.sidebar .form-control, .sidebar .custom-select, .sidebar input[type=text], .sidebar input[type=search] {
+  border: 1px solid #ffffff26 !important; border-radius: 12px !important; background: #ffffff0f !important; color: #fff !important; box-shadow: inset 0 1px 0 #ffffff1f;
+}
+.sidebar .btn { border: 1px solid #ffffff1f !important; border-radius: 999px !important; background: #ffffff10 !important; color: #eef3f8 !important; }
+.sidebar .btn:hover { background: #ffffff24 !important; }
+.sidebar .btn-primary:not(.minimal), .sidebar .btn.active { background: linear-gradient(160deg, #6aa6e8cc, #3a6ea5cc) !important; border-color: #9cc9ff80 !important; }
+.sidebar .collapse-header, .sidebar .sidebar-section > .btn:first-child { color: #fff !important; }
+.sidebar li:hover, .sidebar .filter-item:hover { background: #ffffff12; border-radius: 10px; }
+
+/* ===== 2026-11-01 追加 その2 ===== */
+/* 評価の星：Light Cards の黒い地（後から読み込まれる）が勝って、乗せると枠が二重に見えていた。ここで1枚のガラスに */
+html body .lc-card .lc-cover-rate.corner { background: none !important; border: 0 !important; box-shadow: none !important; }
+html body .lc-card .lc-cover-rate.corner .lc-rate,
+html body .lc-card .lc-cover-rate.corner .lc-rate.open,
+html body .lc-card .lc-cover-rate.corner .lc-rate:hover,
+html body .lc-card .lc-cover-rate:not(.corner) {
+  margin: 0 !important;
+  padding: 3px 9px !important;
+  border: 1px solid #ffffff40 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(140deg, #ffffff2e, #ffffff0a), #0d121859 !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: inset 0 1px 0 #ffffff66, 0 4px 14px #0006 !important;
+  outline: 0 !important;
+}
+html body .lc-card .lc-cover-rate:not(.corner) .lc-rate { padding: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* ページの地：ガラスの後ろにうっすら色を置く（何も無い暗い地の上ではガラスがただの灰色に見えるため） */
+body {
+  background:
+    radial-gradient(900px 700px at 0% 10%, #3a6ea538, transparent 70%),
+    radial-gradient(800px 600px at 100% 0%, #8a4fc22b, transparent 70%),
+    radial-gradient(1000px 700px at 50% 100%, #c2456f1f, transparent 70%),
+    #121820 !important;
+  background-attachment: fixed !important;
+}
+
+/* 左のサイドパネル：もっと透ける（地は薄く、縁と面の光を強く） */
+.sidebar-pane > .sidebar, .sidebar {
+  background: linear-gradient(160deg, #ffffff1f 0%, #ffffff06 40%, #ffffff0d 100%), #14192138 !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  border: 1px solid #ffffff2e !important;
+  box-shadow: inset 0 1px 0 #ffffff59, inset 1px 0 0 #ffffff1f, inset 0 -1px 0 #ffffff0d, 0 16px 40px #0007 !important;
+}
+/* 項目の見出しは枠の無い行に（ボタンの塊に見えていた） */
+.sidebar .sidebar-section > .btn:first-child, .sidebar .collapse-button, .sidebar .sidebar-section .btn.minimal {
+  border: 0 !important; border-radius: 12px !important; background: transparent !important; box-shadow: none !important; text-align: left;
+}
+.sidebar .sidebar-section > .btn:first-child:hover, .sidebar .collapse-button:hover { background: #ffffff14 !important; }
+.sidebar .sidebar-section + .sidebar-section { border-top: 1px solid #ffffff14 !important; }
+.sidebar-search-container .form-control, .sidebar-search-container input { border-radius: 999px !important; }
+/* サイドパネルを開いている時：カードの行（左に -15px はみ出す作り）がパネルの下に入らないよう、一覧の左を空ける */
+.sidebar-pane:not(.hide-sidebar) > .sidebar-pane-content { padding-left: 18px !important; }
+
+/* 表紙の右上の2つ（スクレイプ・あとで見る）は同じ大きさ・同じ高さの丸いガラスに。
+   Suite Core の unify（後から入る !important）より強く指定する */
+html body .lc-card .lc-cover .lc-scrape,
+html body .lc-card .lc-cover .sp22-card-watch {
+  top: 8px !important;
+  width: 34px !important;
+  height: 34px !important;
+  padding: 0 !important;
+  display: grid !important;
+  place-items: center;
+  border: 1px solid #ffffff40 !important;
+  border-radius: 50% !important;
+  background: linear-gradient(140deg, #ffffff2e, #ffffff0a), #0d121866 !important;
+  -webkit-backdrop-filter: blur(12px) saturate(170%);
+  backdrop-filter: blur(12px) saturate(170%);
+  box-shadow: inset 0 1px 0 #ffffff59, 0 3px 10px #0006 !important;
+  color: #fff !important;
+}
+html body .lc-card .lc-cover .sp22-card-watch { right: 8px !important; }
+html body .lc-card .lc-cover .lc-scrape { right: 50px !important; }
+html body .lc-card .lc-cover :is(.lc-scrape, .sp22-card-watch) svg { width: 17px !important; height: 17px !important; }
+html body .lc-card .lc-cover :is(.lc-scrape, .sp22-card-watch):hover { background: linear-gradient(140deg, #ffffff4d, #ffffff1a), #3a6ea566 !important; }
+html body .lc-card .lc-cover .sp22-card-watch.saved { color: #ffd36b !important; }
+/* プレビュー中も、左上の選択と右上のボタンは出したまま押せるように（映像より手前） */
+html body .lc-card.lc-previewing .lc-check,
+html body .lc-card.lc-previewing .lc-cover .sp22-card-watch,
+html body .lc-card.lc-previewing .lc-cover .lc-scrape { opacity: 1 !important; pointer-events: auto !important; z-index: 8 !important; }
+
+/* 上のメニュー：中の帯（Bootstrap の bg-dark）が別の色で塗られて、背景が途中で変わって見えていた */
+.top-nav .bg-dark, .top-nav .navbar-collapse, .top-nav .navbar-nav, .top-nav .navbar-buttons { background: transparent !important; }
+
+/* ===== カードのスキン（<html data-lc-skin>。設定の「見た目」から選ぶ） =====
+   glass  … 表紙の色がにじむ暗めのガラス（これまでの見た目）
+   clear  … 透明なガラス。背景のテーマの色がぼけて透ける（一番 Liquid Glass らしい。少し重い）
+   frost  … 白っぽいすりガラス
+   vivid  … 表紙の色を強くにじませる
+   solid  … ガラスを使わない（一番軽い） */
+html[data-lc-skin="clear"] .lc-card {
+  background: linear-gradient(140deg, #ffffff26 0%, #ffffff08 45%, #ffffff14 100%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
+  border-color: #ffffff38 !important;
+  box-shadow: inset 0 1px 0 #ffffff66, inset 0 -1px 1px #ffffff14, 0 10px 30px #0005 !important;
+}
+html[data-lc-skin="clear"] .lc-card > .lc-ambient { display: none; }
+html[data-lc-skin="frost"] .lc-card {
+  background: linear-gradient(140deg, #ffffff4d 0%, #ffffff1f 50%, #ffffff33 100%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%);
+  border-color: #ffffff59 !important;
+  box-shadow: inset 0 1px 0 #ffffff99, 0 10px 30px #0004 !important;
+}
+html[data-lc-skin="frost"] .lc-card > .lc-ambient { opacity: .25; }
+html[data-lc-skin="frost"] .lc-card .lc-info { text-shadow: 0 1px 2px #0009; }
+html[data-lc-skin="vivid"] .lc-card > .lc-ambient { opacity: .8; filter: blur(24px) saturate(2.2); }
+html[data-lc-skin="vivid"] .lc-card { background: linear-gradient(140deg, #ffffff1a, #ffffff05), #0d121899 !important; }
+html[data-lc-skin="solid"] .lc-card { background: #18212c !important; border-color: #2b3846 !important; box-shadow: 0 3px 12px #0005 !important; }
+html[data-lc-skin="solid"] .lc-card > .lc-ambient { display: none; }
+
+/* 見た目の設定：テーマの色見本 */
+.ss-themes { display: flex; flex-wrap: wrap; gap: 10px; }
+.ss-theme { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; border: 0; background: none; color: #dfe6ee; font-size: 11.5px; cursor: pointer; }
+.ss-theme i { display: block; width: 64px; height: 42px; border: 2px solid #ffffff2e; border-radius: 12px; box-shadow: inset 0 1px 0 #ffffff40; }
+.ss-theme.on i { border-color: #fff; box-shadow: 0 0 0 3px #7fd4ff88; }
+/* 設定画面もガラス */
+.ss-panel { background: linear-gradient(160deg, #ffffff1c, #ffffff06 45%, #ffffff0d), #10151dcc !important; -webkit-backdrop-filter: blur(28px) saturate(180%); backdrop-filter: blur(28px) saturate(180%); border-left: 1px solid #ffffff2b !important; box-shadow: inset 1px 0 0 #ffffff26, -16px 0 40px #0007 !important; }
+
+html.suite-grabbing, html.suite-grabbing * { cursor: grabbing !important; user-select: none !important; }

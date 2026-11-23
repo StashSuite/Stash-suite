@@ -1,0 +1,19 @@
+name: Suite Core
+description: "Stash Suiteの共通の土台（GraphQL・画面の移動・絞り込みのURL・子どもを連想させる作品の判定・色の決まり）。ほかのStash Suiteより先に読み込まれる"
+version: "1.2.0"
+ui:
+  javascript:
+    - ng.js
+    - core.js
+    - i18n.js
+    - drag.js
+    - unify.js
+    - theme.js
+    - settings.js
+    - history.js
+  css:
+    - glass.css
+exec:
+  - python
+  - "{pluginDir}/open_external.py"
+interface: raw

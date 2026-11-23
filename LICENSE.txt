@@ -1,0 +1,27 @@
+Stash Suite — Software License Agreement / 利用規約
+
+Copyright (c) 2026 Stash Suite Author. All rights reserved.
+
+[日本語]
+1. 利用許諾
+   本ソフトウェア（Free版およびPremium版）は、購入者・利用者ご本人の個人利用（複数PC・個人サーバーでの利用を含む）に限り使用できます。
+2. 禁止事項
+   - 本ソフトウェアの全部または一部（改変物を含む）の再配布、転売、共有、公開アップロードを禁止します。
+   - 有料版（Premium版）のファイルを第三者へ譲渡・共有することを禁止します。
+3. 免責事項
+   本ソフトウェアは「現状有姿（AS IS）」で提供されます。本ソフトウェアの利用により生じたいかなる損害（データ損失、外部サイト仕様変更による動作停止等を含む）についても、作者は一切の責任を負いません。大切なデータベースは事前にバックアップを取った上でご利用ください。
+4. サードパーティソフトウェア
+   本ソフトウェアに同梱されているオープンソースライブラリのライセンス条件については、同梱の THIRD_PARTY_NOTICES.txt をご参照ください。
+
+----------------------------------------------------------------------
+
+[English]
+1. License Grant
+   You are granted a personal, non-exclusive, non-transferable license to use this software (Free or Premium Edition) on your own devices and personal Stash servers.
+2. Restrictions
+   - You may not redistribute, resell, sublicense, share, or publicly re-upload this software (in whole or in part, modified or unmodified).
+   - Sharing Premium Edition files with third parties is strictly prohibited.
+3. Disclaimer of Warranty
+   THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THIS SOFTWARE. Always back up your Stash database before running batch operations.
+4. Third-Party Software
+   Open-source libraries bundled with this software are governed by their respective licenses as listed in THIRD_PARTY_NOTICES.txt.

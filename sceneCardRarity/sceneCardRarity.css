@@ -1,0 +1,214 @@
+﻿/* Scene Card Rarity v2.0 — 共通スタイル
+   テーマごとの色・光（--scr-ring / --scr-glow / --scr-sheen など）は JS のテーマ表から生成されます。 */
+
+@property --scr-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+/* 強さ：--scr-k＝光の大きさ、--scr-a＝光の濃さ（html の data-scr-intensity で切替） */
+:root { --scr-k: 1; --scr-a: .8; }
+html[data-scr-intensity="low"] { --scr-k: .6; --scr-a: .55; }
+html[data-scr-intensity="normal"] { --scr-k: 1; --scr-a: .8; }
+html[data-scr-intensity="high"] { --scr-k: 1.45; --scr-a: .95; }
+html[data-scr-intensity="max"] { --scr-k: 2; --scr-a: 1; }
+
+/* ---- カード本体 ---- */
+/* :is(#root,#scr-settings) でIDの詳細度を付け、テーマやカスタムCSSのカード影指定より優先させる */
+:is(#root, #scr-settings) .scr-scene-enabled[data-scr-tier],
+:is(#root, #scr-settings) .scr-scene-enabled[data-scr-tier]:hover,
+:is(#root, #scr-settings) .scr-scene-enabled[data-scr-tier]:focus-within {
+  position: relative;
+  border-color: transparent !important;
+  box-shadow: var(--scr-glow, none) !important;
+  transition: box-shadow .25s ease, filter .25s ease;
+}
+/* 枠：マスクでくり抜いたグラデーション（カード背景に依存しない） */
+.scr-scene-enabled[data-scr-tier]::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 4;
+  border-radius: inherit;
+  padding: var(--scr-ring-w, 0);
+  background: var(--scr-ring, none);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+/* 光沢・ホログラム・スパークル */
+.scr-scene-enabled[data-scr-tier]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  background: var(--scr-sheen, none);
+  opacity: calc(var(--scr-sheen-op, 0) * (.55 + .45 * var(--scr-a)));
+  mix-blend-mode: screen;
+  -webkit-mask: var(--scr-sheen-mask, none);
+  mask: var(--scr-sheen-mask, none);
+  pointer-events: none;
+}
+/* 評価の数字 */
+.scr-scene-enabled[data-scr-tier] .vsc-rating { color: var(--scr-accent) !important; }
+.scr-scene-enabled[data-scr-tier] .vsc-rating svg { color: inherit !important; }
+.scr-scene-enabled[data-scr-tier="5"] .vsc-rating,
+.scr-scene-enabled[data-scr-tier="4"] .vsc-rating {
+  text-shadow: 0 0 calc(7px * var(--scr-k)) color-mix(in srgb, var(--scr-accent) calc(var(--scr-a) * 100%), transparent) !important;
+}
+
+/* ★1：最も地味（暗く・彩度を落とす）。マウスを乗せると元の明るさで確認できる */
+html.scr-dim-low :is(#root, #scr-settings) .scr-scene-enabled[data-scr-tier="1"] {
+  filter: brightness(calc(1 - .3 * var(--scr-k))) saturate(calc(1 - .4 * var(--scr-k))) !important;
+}
+html.scr-dim-low #root .scr-scene-enabled[data-scr-tier="1"]:hover { filter: none !important; }
+
+/* ---- 動き（data-scr-motion：off / top＝★5 / high＝★4以上 / hover＝★4以上をホバー時のみ） ---- */
+html[data-scr-motion="top"] .scr-scene-enabled[data-scr-tier="5"]::before,
+html[data-scr-motion="high"] .scr-scene-enabled[data-scr-tier="5"]::before,
+html[data-scr-motion="high"] .scr-scene-enabled[data-scr-tier="4"]::before,
+html[data-scr-motion="hover"] .scr-scene-enabled[data-scr-tier="5"]:hover::before,
+html[data-scr-motion="hover"] .scr-scene-enabled[data-scr-tier="4"]:hover::before { animation: var(--scr-ring-anim, none); }
+html[data-scr-motion="top"] .scr-scene-enabled[data-scr-tier="5"]::after,
+html[data-scr-motion="high"] .scr-scene-enabled[data-scr-tier="5"]::after,
+html[data-scr-motion="high"] .scr-scene-enabled[data-scr-tier="4"]::after,
+html[data-scr-motion="hover"] .scr-scene-enabled[data-scr-tier="5"]:hover::after,
+html[data-scr-motion="hover"] .scr-scene-enabled[data-scr-tier="4"]:hover::after { animation: var(--scr-sheen-anim, none); }
+/* 「OSのアニメーション削減設定に従う」をオンにした場合だけ、OS設定で動きを止める */
+@media (prefers-reduced-motion: reduce) {
+  html.scr-respect-rm .scr-scene-enabled[data-scr-tier]::before,
+  html.scr-respect-rm .scr-scene-enabled[data-scr-tier]::after { animation: none !important; }
+}
+@keyframes scr-spin { to { --scr-angle: 360deg; } }
+@keyframes scr-sweep { 0% { background-position: 100% 0; } 55%, 100% { background-position: 0% 0; } }
+@keyframes scr-hue { to { filter: hue-rotate(360deg); } }
+@keyframes scr-breathe { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@keyframes scr-twinkle { 0%, 100% { opacity: calc(var(--scr-sheen-op, 0) * .35); } 50% { opacity: var(--scr-sheen-op, 0); } }
+@keyframes scr-flicker { 0%, 100% { opacity: 1; } 91% { opacity: 1; } 92% { opacity: .35; } 93% { opacity: 1; } 95% { opacity: .5; } 96% { opacity: 1; } }
+
+/* ---- 出演者：作品カードと同じテーマ・強さ（--scr-p-* はテーマ表から生成） ---- */
+#root a.vsc-performer.scr-performer-enabled[data-scr-tier],
+#scr-more-pop a.vsc-performer.scr-performer-enabled[data-scr-tier],
+#sp22 a.chip.performer[data-scr-tier] {
+  color: var(--scr-p-accent) !important;
+  border: 1px solid transparent !important;
+  background: linear-gradient(var(--scr-p-bg), var(--scr-p-bg)) padding-box, var(--scr-p-ring) border-box !important;
+  box-shadow: var(--scr-p-glow) !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+#root a.vsc-performer.scr-performer-enabled[data-scr-tier]::after { content: none !important; display: none !important; }
+#root a.vsc-performer.scr-performer-enabled[data-scr-tier] > span { color: inherit !important; }
+#root a.vsc-performer.scr-performer-enabled[data-scr-tier="5"],
+#sp22 a.chip.performer[data-scr-tier="5"] { border-width: 1.5px !important; font-weight: 700; }
+:is(#sp22-performer-card, #scr-actor-popup)[data-scr-tier] {
+  border: 2px solid transparent !important;
+  background: linear-gradient(#1a2029f7, #1a2029f7) padding-box, var(--scr-p-ring) border-box !important;
+  box-shadow: 0 8px 30px #000b, var(--scr-p-glow-lg) !important;
+  filter: none !important;
+}
+:is(#sp22-performer-card, #scr-actor-popup)[data-scr-tier] .name { color: var(--scr-p-accent); }
+:is(#sp22-performer-card, #scr-actor-popup)[data-scr-tier] .actor-rating button.selected {
+  color: var(--scr-p-accent) !important;
+  text-shadow: 0 0 calc(6px * var(--scr-k)) color-mix(in srgb, var(--scr-p-accent) calc(var(--scr-a) * 100%), transparent) !important;
+}
+:is(#sp22-performer-card, #scr-actor-popup)[data-scr-tier="0"] .actor-rating button.selected,
+:is(#sp22-performer-card, #scr-actor-popup)[data-scr-tier="1"] .actor-rating button.selected { color: #f6cb69 !important; text-shadow: none !important; }
+/* ★5の出演者は枠も回る（動きの設定に従う） */
+html:is([data-scr-motion="top"],[data-scr-motion="high"]) :is(#root a.vsc-performer.scr-performer-enabled, #sp22 a.chip.performer, #sp22-performer-card, #scr-actor-popup)[data-scr-tier="5"],
+html[data-scr-motion="hover"] :is(#root a.vsc-performer.scr-performer-enabled, #sp22 a.chip.performer, #sp22-performer-card, #scr-actor-popup)[data-scr-tier="5"]:hover { animation: scr-spin 6s linear infinite; }
+
+/* ---- 出演者ホバーカード ---- */
+#scr-actor-popup,#scr-actor-popup *{box-sizing:border-box}
+#scr-actor-popup{display:none;position:fixed;z-index:2147483647;width:min(280px,calc(100vw - 24px));padding:7px;border:1px solid #8293a8;border-radius:10px;background:#1c232ef7;color:#eee;box-shadow:0 7px 30px #000b;font:13px/1.4 sans-serif}
+#scr-actor-popup .portrait{width:100%;height:min(390px,calc(100dvh - 160px));min-height:1px;display:grid;place-items:center;overflow:hidden;border-radius:6px;background:#10151b;color:#b5c1cf}
+#scr-actor-popup .portrait img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+#scr-actor-popup .caption{display:flex;align-items:center;gap:8px;padding:7px 3px 3px}
+#scr-actor-popup .name{flex:1;min-width:0;font-size:14px;font-weight:700;overflow-wrap:anywhere}
+#scr-actor-popup .count{flex-shrink:0;color:#c8e0f5;font-size:12px;white-space:nowrap}
+#scr-actor-popup .actor-rating{display:flex;align-items:center;gap:3px;justify-content:space-between;border-top:1px solid #3e4a59;margin-top:4px;padding:5px 2px 0}
+#scr-actor-popup .actor-stars{display:flex;gap:1px}
+#scr-actor-popup button{cursor:pointer;color:#8e99a8;background:transparent;border:0;border-radius:4px;padding:2px 3px;font:20px/1.2 sans-serif}
+#scr-actor-popup button.selected{color:#f6cb69}
+#scr-actor-popup button:hover{background:#45566c;color:#ffe09b}
+#scr-actor-popup button:disabled{opacity:.45;cursor:wait}
+#scr-actor-popup .actor-rating-value{font:11px sans-serif;white-space:nowrap;color:#c7d7e8}
+#scr-actor-popup .actor-clear{font-size:16px}
+#scr-actor-popup .actor-status{font:11px/1.4 sans-serif;color:#afcbe4;padding:2px 3px 0;white-space:pre-wrap}
+
+/* ---- 設定パネル ---- */
+#scr-launch,#scr-settings,#scr-settings *{box-sizing:border-box}
+#scr-launch{position:fixed;right:16px;bottom:16px;z-index:2147483000;display:flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid #6d7f99;border-radius:999px;background:#1a2433ee;color:#e9f2ff;font:600 12px system-ui,sans-serif;box-shadow:0 3px 14px #0006;cursor:pointer;backdrop-filter:blur(6px)}
+#scr-launch::before{content:"";width:12px;height:12px;border-radius:50%;background:conic-gradient(#ff3b3b,#ffb31a,#fff35c,#3dff7a,#22d3ff,#7b5cff,#ff3bd4,#ff3b3b)}
+#scr-launch:hover{border-color:#a9c4e6}
+/* v2.5.1：上のメニューバーに置いた時は、ほかのボタンと同じ大きさの小さなボタン。設定パネルは右上から開く */
+#scr-launch.in-navbar{position:static;flex-shrink:0;white-space:nowrap;align-self:center;margin-right:4px;padding:4px 10px;box-shadow:none;background:transparent;border-color:#ffffff30;font-size:12px;z-index:auto}
+#scr-launch.in-navbar:hover{background:#ffffff14}
+#scr-launch.in-navbar ~ #scr-settings,body:has(#scr-launch.in-navbar) #scr-settings{top:56px;bottom:auto}
+#scr-settings{display:none;position:fixed;right:16px;bottom:58px;z-index:2147483000;width:min(420px,calc(100vw - 32px));max-height:min(86vh,760px);overflow:auto;border:1px solid #5d6f88;border-radius:14px;padding:14px;background:#141c28f7;color:#e4eefc;font:12px/1.5 system-ui,sans-serif;box-shadow:0 14px 40px #000a;backdrop-filter:blur(8px)}
+#scr-settings header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+#scr-settings header strong{font-size:15px}
+#scr-settings h4{margin:14px 0 6px;font-size:11px;font-weight:600;letter-spacing:.06em;color:#9fb3cc}
+#scr-settings button{font:inherit;color:#edf5ff;cursor:pointer}
+#scr-settings .scr-close{width:28px;height:28px;border:0;border-radius:50%;background:#26354a;font-size:16px;line-height:1}
+#scr-settings .scr-close:hover{background:#355075}
+#scr-settings .scr-themes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+#scr-settings .scr-theme{display:flex;gap:9px;align-items:center;text-align:left;padding:8px;border:1px solid #33445c;border-radius:10px;background:#1b2636}
+#scr-settings .scr-theme:hover{border-color:#5e7fa8}
+#scr-settings .scr-theme[aria-pressed="true"]{border-color:#a9cbff;background:#22324a;box-shadow:0 0 0 1px #a9cbff55}
+#scr-settings .scr-swatch{flex:0 0 30px;height:30px;border-radius:8px;padding:3px;background:var(--swatch);-webkit-mask:none}
+#scr-settings .scr-swatch::after{content:"";display:block;width:100%;height:100%;border-radius:5px;background:#141c28}
+#scr-settings .scr-theme b{display:block;font-size:12px}
+#scr-settings .scr-theme small{display:block;color:#93a6bf;font-size:10px;line-height:1.35}
+#scr-settings .scr-segment{display:flex;padding:3px;gap:3px;border-radius:9px;background:#0f1620;border:1px solid #2b3a4f}
+#scr-settings .scr-segment button{flex:1;padding:6px 4px;border:0;border-radius:6px;background:transparent;color:#b9c8da}
+#scr-settings .scr-segment button[aria-pressed="true"]{background:#2f4a6e;color:#fff;box-shadow:0 1px 4px #0006}
+#scr-settings .scr-preview{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;padding:12px 8px 8px;border-radius:10px;background:#0c121a}
+#scr-settings .scr-sample{position:relative;aspect-ratio:3/4;border-radius:8px;border:1px solid #333;background:linear-gradient(160deg,#3a4a63,#1d2533 55%,#121821);display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;font-size:10px;color:#dfe8f5}
+#scr-settings .scr-sample span{position:relative;z-index:5;color:var(--scr-accent,#ccc);font-weight:700}
+#scr-settings label{display:flex;align-items:center;gap:8px;margin:7px 0}
+#scr-settings select{margin-left:auto;max-width:190px;padding:4px 6px;color:#e9f2ff;background:#1f2d40;border:1px solid #4b6283;border-radius:6px}
+#scr-settings input[type=checkbox]{accent-color:#8fc1ff}
+#scr-settings p{margin:6px 0;color:#91a4bd;font-size:11px}
+#scr-settings .scr-refresh{margin-top:6px;padding:6px 10px;border:1px solid #4b6283;border-radius:7px;background:#1f2d40}
+#scr-settings .scr-status{font-size:11px;color:#b2c9e1;margin-top:8px;white-space:pre-wrap}
+
+/* 出演者ホバーカード：数値と解除ボタンは廃止（同じ星をもう一度押すと解除） */
+#scr-actor-popup .actor-rating-value,#scr-actor-popup .actor-clear{display:none!important}
+#scr-actor-popup .actor-rating{justify-content:center}
+/* v2.2.0 クリック式の出演者カード */
+#scr-actor-popup .actor-page{flex-shrink:0;padding:2px 8px;border:1px solid #5d6e82;border-radius:5px;background:#ffffff10;color:#cfe4f7;font:600 11.5px/1.6 sans-serif;white-space:nowrap}
+#scr-actor-popup .actor-page:hover{background:#ffffff22;color:#fff}
+#root a.vsc-performer.scr-actor-selected{box-shadow:0 0 0 2px #9fe3ffcc!important}
+
+/* ---- カードの見た目（v2.4.0）：高さをそろえる・文字を読みやすく・品番 ---- */
+/* Valkyr Scene Cards の指定（.valkyr-scene-card > .scene-card.grid-card.card …）より強くするため html body から書く */
+/* タイトルは常に2行分の高さ（1行のタイトルでもカードの高さが変わらない） */
+html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-title h5{height:2.9em!important;margin-bottom:2px!important}
+/* 出演者は1行。入りきらない名前は … で省き、「and N more」は右端に残す */
+/* v2.5.0：名前は縮めず入る人数だけ並べ、残りは「+N」。区切りの「,」は font-size:0 で消す（名前の間はすき間で区切る） */
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list{display:flex!important;align-items:center;gap:4px;flex-wrap:nowrap!important;white-space:nowrap!important;overflow:hidden;box-sizing:border-box;height:32px!important;min-height:32px;max-height:32px;padding-top:4px!important;padding-bottom:4px!important;font-size:0!important}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list>a.vsc-performer{flex:0 0 auto;max-width:100%;overflow:hidden;text-overflow:ellipsis;font-size:12.5px!important}
+/* 1人目だけは長い名前でも … で収める（2人目以降は「+N」へ回す） */
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list:not(.scr-measuring)>a.vsc-performer:first-child{flex-shrink:1;min-width:0}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list>a.vsc-performer>span{overflow:hidden;text-overflow:ellipsis}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list>a.vsc-performer.scr-chip-hidden{display:none!important}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list>.overflow-popover{flex:0 0 auto;margin-left:auto;padding-left:6px;font-size:11.5px}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list.scr-fitted>.overflow-popover{display:none!important}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list>.scr-more{flex:0 0 auto;margin-left:auto;height:22px;padding:0 8px;border:1px solid #5d6e82;border-radius:11px;background:#ffffff12;color:#cfe4f7;font:600 12px/20px sans-serif;cursor:pointer}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list>.scr-more:hover{background:#ffffff26;color:#fff}
+html body .valkyr-scene-card > .scene-card.grid-card.card > .card-section > .vsc-performers-list>.scr-more[hidden]{display:none}
+/* 「+N」で開く残りの出演者 */
+#scr-more-pop{position:fixed;z-index:1060;display:flex;flex-wrap:wrap;gap:6px;max-width:320px;max-height:50vh;overflow:auto;padding:8px;border:1px solid #4a5868;border-radius:8px;background:#1a2029f7;box-shadow:0 8px 30px #000b}
+#scr-more-pop[hidden]{display:none}
+#scr-more-pop a.vsc-performer{padding:1px 8px;border:1px solid #5d6e82;border-radius:5px;color:#cfe4f7;font-size:12.5px;line-height:1.6;white-space:nowrap;text-decoration:none}
+#scr-more-pop a.vsc-performer:hover{background:#ffffff1a}
+/* 小さすぎた文字（10px）を 12px 前後に */
+html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-studio,html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-studio a{font-size:12px!important}
+html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-key-data,html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-key-data span{font-size:11.5px!important}
+html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-user-data,html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-user-data span{font-size:12px!important}
+html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-user-data svg{width:13px;height:13px}
+/* 評価はクリックで変えられるので、押しやすい大きさに */
+html body .valkyr-scene-card > .scene-card.grid-card.card .vsc-rating.sp22-card-rating{min-height:24px;padding:2px 7px!important;display:inline-flex!important;align-items:center;gap:3px}
+html body .valkyr-scene-card > .scene-card.grid-card.card .card-popovers .btn{font-size:12px!important}
+/* 品番：表紙の左下 */
+html body .valkyr-scene-card > .scene-card.grid-card.card .scr-code{position:absolute;left:6px;bottom:6px;z-index:5;padding:1px 7px;border-radius:4px;background:#0b111acc;color:#e8eef6;font:600 12px/1.6 system-ui,sans-serif;letter-spacing:.02em;pointer-events:none;box-shadow:0 1px 3px #0008}

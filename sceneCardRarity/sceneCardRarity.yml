@@ -1,0 +1,10 @@
+﻿name: Scene Card Rarity
+description: "作品評価でシーンカードを演出（テーマ6種・強さ4段階・動きの切替）と出演者カード（クリックで表示）"
+version: "2.5.2"
+ui:
+  requires:
+    - serverStore
+  javascript:
+    - Stash_Card_Rarity_Highlighter.js
+  css:
+    - sceneCardRarity.css
