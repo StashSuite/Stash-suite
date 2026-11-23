@@ -70,6 +70,7 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 | **Tag Weighted Recommendations** (Smart sort by tag weights + performers + unwatched boost) | — | ✅ |
 | **Manga Viewer** (Dedicated RTL / double-page spread / inertial scroll / wall viewer) | — | ✅ |
 
+> **Get Premium Edition**: [BOOTH (Japan / International)](https://booth.pm/ja/items/9209264) *(Payhip global storefront coming soon)*  
 > Upgrading from Free to Premium is seamless: simply overwrite the plugin folders with the Premium Edition files. All settings stored via `Server Store` are automatically preserved.
 
 ---

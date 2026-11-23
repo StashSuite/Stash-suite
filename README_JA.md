@@ -70,6 +70,7 @@
 | **Tag Weighted Recommendations**（タグの好み重み＋出演者＋未視聴ボーナスおすすめ順） | — | ✅ |
 | **Manga Viewer**（右開き／見開き／慣性スクロール／ウォール表示の専用漫画ビューア） | — | ✅ |
 
+> **Premium版の入手はこちら**：[BOOTH 公式ショップ](https://booth.pm/ja/items/9209264)（Free版も同じページから無料ダウンロード可能です）  
 > Free版から Premium版への移行は、フォルダを上書きコピーするだけです。`Server Store` に保存された設定はそのまま引き継がれます。
 
 ---
