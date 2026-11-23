@@ -1,6 +1,6 @@
 # Stash Suite (Free Edition)
 
-**[日本語版 README はこちら (README_JA.md)](./README_JA.md)**
+**English** | [日本語](./README_JA.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [한국어](./README_KO.md)
 
 A drop-in plugin suite that upgrades [StashApp](https://stashapp.cc/)'s browsing, playback, library organization, and reading experience.  
 No external Python packages (`pip`) or extra servers required — just copy the folders into your Stash `plugins` directory.
