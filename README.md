@@ -78,7 +78,17 @@ All 11 Free modules are bundled into a single **`stashSuite`** plugin folder for
 
 ---
 
-## Installation (3 Steps)
+## Installation
+
+### Option A: 1-Click Install via Stash Plugin Manager (Recommended)
+
+1. Open Stash and go to **Settings → Plugins → Available Plugins → Add source**.
+2. Enter the following and save:
+   - **Name**: `Stash Suite`
+   - **Source URL**: `https://raw.githubusercontent.com/StashSuite/Stash-suite/main/index.yml`
+3. Select **Stash Suite (Free)** from the list, click **Install**, and refresh the page (`F5`).
+
+### Option B: Manual ZIP Copy (3 Steps)
 
 1. Download the latest release ZIP (or click **Code → Download ZIP** on this repository) and extract it.
 2. Copy the **`stashSuite`** folder into your Stash `plugins` directory *(Premium Edition uses 3 folders: `stashSuite`, `libraryHub`, `splitParts`)*:

@@ -1,0 +1,8 @@
+- id: stashSuite
+  name: Stash Suite (Free)
+  metadata:
+    description: All-in-one UI & browsing suite for StashApp (11 modules in 1 folder, 5 languages, 10 themes, direct-source hover preview, 9-screen Grid Player, Performer Drawer, Auto Backup).
+  version: 1.0.1
+  date: 2026-11-23 23:12:34
+  path: stashSuite.zip
+  sha256: ad7bff661f48f310b40c2459f56963a67b5f9d37da69da936112bcbf8f394f21

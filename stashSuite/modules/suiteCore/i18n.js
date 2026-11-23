@@ -5597,6 +5597,84 @@
     "尚無資料",
     "暂无数据",
     "아직 없음"
+  ],
+  "Free版でも基本機能はすべて無料で使えます。さらに以下の機能を使いたい方向けに、買い切りのPremium版を用意しています。": [
+    "All core features in the Free edition are free forever. If you want the additional modules below, a one-time purchase Premium edition is also available.",
+    "Free 版的所有基本功能皆可永久免費使用。若希望使用以下進階功能，另有買斷制的 Premium 版可供選擇。",
+    "Free 版的所有基本功能均可永久免费使用。若希望使用以下进阶功能，另有买断制的 Premium 版可供选择。",
+    "Free 버전의 모든 기본 기능은 무료로 계속 사용할 수 있습니다. 아래의 추가 기능이 필요하신 분을 위해 일회성 구매 방식의 Premium 버전도 제공하고 있습니다."
+  ],
+  "カードからその場で即再生できる没入型ミニプレイヤー（評価・タグ編集・スクレイプ対応）": [
+    "Immersive in-place mini player directly from cards (with rating, tagging & scraping)",
+    "從卡片直接原地播放的沉浸式迷你播放器（支援評分、標籤編輯與抓取）",
+    "从卡片直接原地播放的沉浸式迷你播放器（支持评分、标签编辑与抓取）",
+    "카드에서 바로 재생하는 몰입형 미니 플레이어 (평점·태그 편집·스크래핑 지원)"
+  ],
+  "専用漫画ビューア": [
+    "Dedicated Manga Viewer",
+    "專用漫畫閱讀器",
+    "专用漫画阅读器",
+    "전용 만화 뷰어"
+  ],
+  "右開き・見開き・慣性スクロール・ウォール表示に対応した漫画・同人誌ビューア": [
+    "Manga & doujinshi reader with RTL spread view, smooth scroll, and wall layout",
+    "支援右翻、雙頁跨頁、慣性捲動與牆面檢視的漫畫／同人誌閱讀器",
+    "支持右翻、双页跨页、惯性滚动与墙面视图的漫画/同人志阅读器",
+    "오른쪽 넘김·양면 보기·관성 스크롤·월 뷰를 지원하는 만화·동인지 뷰어"
+  ],
+  "整備ハブ（Library Hub）": [
+    "Library Hub",
+    "整備中心（Library Hub）",
+    "整备中心（Library Hub）",
+    "정비 허브 (Library Hub)"
+  ],
+  "整備率の可視化と、試し引き・バックアップ付きの一括自動整理": [
+    "Library completion dashboard plus safe bulk auto-organization with dry-run & undo",
+    "整理進度視覺化，以及附帶測試抓取與備份復原的批次自動整理",
+    "整理进度可视化，以及附带测试抓取与备份还原的批量自动整理",
+    "정리율 시각화 및 시험 조회·백업 복구가 포함된 일괄 자동 정리"
+  ],
+  "おすすめ順（Tag Weighted）": [
+    "Tag Weighted Recommendations",
+    "標籤權重推薦排序",
+    "标签权重推荐排序",
+    "태그 가중치 추천순"
+  ],
+  "タグの好み重み＋出演者＋未視聴ボーナスで作品を自動選出": [
+    "Smart recommendations combining tag weights, performers, and unwatched bonus",
+    "結合標籤喜好權重、演員與未觀看加成的智慧推薦排序",
+    "结合标签喜好权重、演员与未观看加成的智能推荐排序",
+    "태그 선호 가중치·출연자·미시청 보너스를 조합한 맞춤 추천순"
+  ],
+  "分割動画まとめ（Split Parts）": [
+    "Split Parts Merger",
+    "分段影片合併（Split Parts）",
+    "分段视频合并（Split Parts）",
+    "분할 영상 묶기 (Split Parts)"
+  ],
+  "-A/-B や _1/_2 などの分割動画を1本にまとめて連続再生": [
+    "Automatically merges multi-part videos (-A/-B, _1/_2) for seamless continuous playback",
+    "自動整合 -A/-B、_1/_2 等分段影片並無縫連續播放",
+    "自动整合 -A/-B、_1/_2 等分段视频并无缝连续播放",
+    "-A/-B, _1/_2 같은 분할 영상을 하나로 묶어 끊김 없이 연속 재생"
+  ],
+  "Free版からPremium版への移行はフォルダを上書きコピーするだけで、設定はそのまま引き継がれます。": [
+    "Upgrading from Free to Premium is a simple folder copy—all your saved settings carry over automatically.",
+    "從 Free 版升級至 Premium 版只需覆蓋複製資料夾，所有設定都會自動保留。",
+    "从 Free 版升级至 Premium 版只需覆盖复制文件夹，所有设置都会自动保留。",
+    "Free 버전에서 Premium 버전으로 업그레이드할 때는 폴더를 덮어쓰기만 하면 모든 설정이 그대로 유지됩니다."
+  ],
+  "BOOTHでPremium版を見る": [
+    "View Premium on BOOTH",
+    "前往 BOOTH 查看 Premium 版",
+    "前往 BOOTH 查看 Premium 版",
+    "BOOTH에서 Premium 버전 보기"
+  ],
+  "詳しい機能紹介を見る": [
+    "View Full Feature Guide",
+    "查看完整功能介紹",
+    "查看完整功能介绍",
+    "자세한 기능 소개 보기"
   ]
 };
 

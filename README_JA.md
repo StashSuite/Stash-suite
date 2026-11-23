@@ -77,7 +77,17 @@
 
 ---
 
-## インストール方法（3ステップ）
+## インストール方法
+
+### 方法A：Stash の設定画面から 1 クリック導入（おすすめ・自動アップデート対応）
+
+1. Stash を開き、**設定 → プラグイン → 利用可能なプラグイン →「ソースを追加（Add source）」** を押します。
+2. 以下を入力して保存します。
+   - **名前**：`Stash Suite`
+   - **ソース URL**：`https://raw.githubusercontent.com/StashSuite/Stash-suite/main/index.yml`
+3. 一覧に出た **Stash Suite (Free)** にチェックを入れて **インストール** を押し、ページを再読み込み（`F5`）します。
+
+### 方法B：ZIP を手動コピー（3ステップ）
 
 1. このリポジトリの **Code → Download ZIP**（または Releases の最新 ZIP）をダウンロードして解凍します。
 2. 中にある **`stashSuite` フォルダ（1フォルダのみ）** を、Stash の `plugins` フォルダへコピーします（※Premium版は `stashSuite`・`libraryHub`・`splitParts` の3フォルダ）。

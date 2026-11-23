@@ -63,7 +63,17 @@
 
 ---
 
-## 설치 방법 (3단계)
+## 설치 방법
+
+### 방법 A: Stash 플러그인 관리에서 원클릭 설치 (권장 · 업데이트 지원)
+
+1. Stash에서 **Settings → Plugins → Available Plugins → Add source**를 클릭합니다.
+2. 아래 내용을 입력하고 저장합니다:
+   - **Name**: `Stash Suite`
+   - **Source URL**: `https://raw.githubusercontent.com/StashSuite/Stash-suite/main/index.yml`
+3. 목록에 표시된 **Stash Suite (Free)**를 체크하고 **Install**을 누른 뒤 페이지를 새로고침(`F5`)합니다.
+
+### 방법 B: ZIP 수동 복사 (3단계)
 
 1. 이 저장소의 **Code → Download ZIP** (또는 Releases 최신 ZIP)을 다운로드하여 압축을 풉니다.
 2. 압축을 푼 **`stashSuite` 폴더(1개 폴더)**를 Stash의 `plugins` 폴더에 복사합니다 (Premium 버전은 `stashSuite`, `libraryHub`, `splitParts` 3개 폴더).

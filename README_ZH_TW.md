@@ -63,7 +63,17 @@
 
 ---
 
-## 安裝步驟（3 步驟）
+## 安裝步驟
+
+### 方法 A：透過 Stash 外掛管理一鍵安裝（推薦・支援一鍵更新）
+
+1. 開啟 Stash，前往 **設定 → 外掛（Plugins）→ 可用的外掛（Available Plugins）→ Add source**。
+2. 填入以下資訊並儲存：
+   - **名稱**：`Stash Suite`
+   - **來源 URL**：`https://raw.githubusercontent.com/StashSuite/Stash-suite/main/index.yml`
+3. 勾選清單中的 **Stash Suite (Free)** 並點擊 **安裝（Install）**，最後重新整理頁面（`F5`）。
+
+### 方法 B：手動解壓複製（3 步驟）
 
 1. 點擊本儲存庫的 **Code → Download ZIP**（或從 Releases 下載最新 ZIP）並解壓縮。
 2. 將裡面的 **`stashSuite` 資料夾（僅 1 個資料夾）** 複製到 Stash 的 `plugins` 資料夾（Premium 版為 `stashSuite`、`libraryHub`、`splitParts` 共 3 個資料夾）：

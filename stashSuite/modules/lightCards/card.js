@@ -299,26 +299,30 @@
       // スタジオをまとめた1枚（まとめ:代表）：左上に「まとめ N本」。押すとそのスタジオの作品を全部並べる
       scene.tags?.some((t) => t.name === "まとめ:代表") &&
         h(BundleBadge, { group: scene.tags.find((t) => /^まとめ:/.test(t.name) && !/^まとめ:(?:代表|中身)$/.test(t.name)), studio: scene.studio }),
-      // 表紙の右上：スクレイプ（ミニプレイヤーのスクレイプ画面を、品番を検索欄に入れて開く）。マウスを乗せた時だけ出す
-      window.StashMiniPlayer?.scrape &&
-        h(
-          "button",
-          {
-            type: "button",
-            className: "lc-scrape",
-            title: "この作品をスクレイプ（ミニプレイヤーのスクレイプ画面を開く）",
-            onClick: (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              window.StashMiniPlayer.scrape(scene.id, scene.code || "");
-            },
-          },
-          h(
-            "svg",
-            { viewBox: "0 0 24 24", width: 15, height: 15, "aria-hidden": "true", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" },
-            h("path", { d: "M4 20 15 9M14 4v3M18 6l-2 2M20 10h-3M9 4l1 2M20 15l-2-1" }),
-          ),
-        ),
+      // 表紙の右上：スクレイプ（縦型・表紙だけ。横型はカード全体の右上に配置）
+      !side && h(ScrapeBtn, { scene }),
+    );
+  }
+
+  function ScrapeBtn({ scene }) {
+    if (!window.StashMiniPlayer?.scrape) return null;
+    return h(
+      "button",
+      {
+        type: "button",
+        className: "lc-scrape",
+        title: "この作品をスクレイプ（ミニプレイヤーのスクレイプ画面を開く）",
+        onClick: (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.StashMiniPlayer.scrape(scene.id, scene.code || "");
+        },
+      },
+      h(
+        "svg",
+        { viewBox: "0 0 24 24", width: 15, height: 15, "aria-hidden": "true", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" },
+        h("path", { d: "M4 20 15 9M14 4v3M18 6l-2 2M20 10h-3M9 4l1 2M20 15l-2-1" }),
+      ),
     );
   }
 
@@ -717,6 +721,7 @@
           },
         }),
       ),
+      side && h(ScrapeBtn, { scene }),
       h(Cover, {
         scene,
         link,

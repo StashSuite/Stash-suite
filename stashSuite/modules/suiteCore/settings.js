@@ -310,6 +310,43 @@
   // ---- 画面 ----
   const panel = el("div", "ss-panel");
   panel.hidden = true;
+  function premiumInfo() {
+    if (window.__stashMiniPlayerBooted || window.StashMiniPlayer || window.LibraryHub) return null;
+    const s = section(
+      "Stash Suite Premium",
+      "Free版でも基本機能はすべて無料で使えます。さらに以下の機能を使いたい方向けに、買い切りのPremium版を用意しています。"
+    );
+    const items = [
+      ["Stash Mini Player", "カードからその場で即再生できる没入型ミニプレイヤー（評価・タグ編集・スクレイプ対応）"],
+      ["専用漫画ビューア", "右開き・見開き・慣性スクロール・ウォール表示に対応した漫画・同人誌ビューア"],
+      ["整備ハブ（Library Hub）", "整備率の可視化と、試し引き・バックアップ付きの一括自動整理"],
+      ["おすすめ順（Tag Weighted）", "タグの好み重み＋出演者＋未視聴ボーナスで作品を自動選出"],
+      ["分割動画まとめ（Split Parts）", "-A/-B や _1/_2 などの分割動画を1本にまとめて連続再生"],
+    ];
+    const list = el("div", "ss-prem-list");
+    for (const [title, desc] of items) {
+      const it = el("div", "ss-prem-item");
+      it.append(el("strong", null, title), el("small", null, desc));
+      list.append(it);
+    }
+    const note = el("p", "ss-note", "Free版からPremium版への移行はフォルダを上書きコピーするだけで、設定はそのまま引き継がれます。");
+    note.style.marginTop = "12px";
+    const links = el("div", "ss-prem-links");
+    const mkLink = (label, href, primary) => {
+      const a = el("a", "ss-btn" + (primary ? " primary" : ""), label);
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.style.textDecoration = "none";
+      return a;
+    };
+    links.append(
+      mkLink("BOOTHでPremium版を見る", "https://booth.pm/ja/items/9209264", true),
+      mkLink("詳しい機能紹介を見る", "https://note.com/stashsuite/n/n58781edc2f98", false)
+    );
+    s.append(list, note, links);
+    return s;
+  }
   let activeTab = "look";
   function open() {
     needReload = false;
@@ -318,6 +355,7 @@
       ["ops", "操作・表示", [behavior, display, gridPlayerSec]],
       ["fx", "演出・おすすめ", [rarity, recommend]],
       ["tools", "プレイヤー・整備", [player, hub]],
+      ["premium", "Premium", [premiumInfo]],
     ];
     const tabs = groups
       .map(([id, label, fns]) => {
@@ -406,6 +444,11 @@
 .ss-tab{padding:5px 12px;border:1px solid var(--suite-line);border-radius:var(--suite-radius);background:var(--suite-raise);color:var(--suite-sub);font-size:12.5px;cursor:pointer}
 .ss-tab:hover{color:var(--suite-text);border-color:var(--suite-accent-hi)}
 .ss-tab.on{background:var(--suite-accent);border-color:var(--suite-accent);color:#fff;font-weight:600}
+.ss-prem-list{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.ss-prem-item{padding:8px 10px;border:1px solid var(--suite-line);border-radius:var(--suite-radius);background:var(--suite-raise)}
+.ss-prem-item strong{display:block;font-size:13px;color:var(--suite-text);margin-bottom:2px}
+.ss-prem-item small{display:block;font-size:11.5px;color:var(--suite-sub);line-height:1.45}
+.ss-prem-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .ss-panel{flex-direction:column;align-items:flex-end}
 .ss-panel>.ss-body{flex:1}
 .ss-section{padding:14px 0;border-bottom:1px solid var(--suite-line)}
