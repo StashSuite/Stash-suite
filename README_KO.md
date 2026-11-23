@@ -57,6 +57,8 @@
 | **Tag Weighted Recommendations** (태그 선호 가중치+출연자+미시청 보너스 추천 정렬) | — | ✅ |
 | **Manga Viewer** (우철/양면 보기/관성 스크롤/월 뷰 전용 만화 뷰어) | — | ✅ |
 
+> **Premium 유료 버전 구매**: [BOOTH 공식 샵](https://booth.pm/ja/items/9209264) *(Payhip 글로벌 스토어 오픈 예정)*  
+> **최신 소식 및 업데이트**: [공식 X (@stashsuite)](https://x.com/stashsuite)  
 > Free 버전에서 Premium 버전으로 업그레이드할 때는 폴더를 덮어쓰기 복사하기만 하면 되며, `Server Store`에 저장된 설정은 그대로 유지됩니다.
 
 ---

@@ -71,6 +71,7 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 | **Manga Viewer** (Dedicated RTL / double-page spread / inertial scroll / wall viewer) | — | ✅ |
 
 > **Get Premium Edition**: [BOOTH (Japan / International)](https://booth.pm/ja/items/9209264) *(Payhip global storefront coming soon)*  
+> **Updates & News**: [Official X (@stashsuite)](https://x.com/stashsuite)  
 > Upgrading from Free to Premium is seamless: simply overwrite the plugin folders with the Premium Edition files. All settings stored via `Server Store` are automatically preserved.
 
 ---

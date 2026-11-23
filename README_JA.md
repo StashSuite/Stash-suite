@@ -70,7 +70,9 @@
 | **Tag Weighted Recommendations**（タグの好み重み＋出演者＋未視聴ボーナスおすすめ順） | — | ✅ |
 | **Manga Viewer**（右開き／見開き／慣性スクロール／ウォール表示の専用漫画ビューア） | — | ✅ |
 
-> **Premium版の入手はこちら**：[BOOTH 公式ショップ](https://booth.pm/ja/items/9209264)（Free版も同じページから無料ダウンロード可能です）  
+> **Premium版の入手はこちら**：[BOOTH 公式ショップ](https://booth.pm/ja/items/9209264)（Free版も同じページから無料ダウンロード可能）  
+> **最新情報・アップデート告知**：[公式 X (@stashsuite)](https://x.com/stashsuite)  
+> **日本語ガイド（note）**：[Stash Suite 機能紹介](https://note.com/stashsuite/n/n58781edc2f98) ／ [PC初心者向け Stash 導入ガイド](https://note.com/stashsuite/n/n56676724c85b)  
 > Free版から Premium版への移行は、フォルダを上書きコピーするだけです。`Server Store` に保存された設定はそのまま引き継がれます。
 
 ---

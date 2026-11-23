@@ -57,6 +57,8 @@
 | **Tag Weighted Recommendations**（依標籤喜好權重＋演員＋未觀看加成智慧推薦排序） | — | ✅ |
 | **Manga Viewer**（右翻／雙頁跨頁／慣性捲動／瀑布流牆面專用漫畫閱讀器） | — | ✅ |
 
+> **購買 Premium 付費版**：[BOOTH 官方商店](https://booth.pm/ja/items/9209264) *(Payhip 全球商店即將開放)*  
+> **最新更新資訊**：[官方 X (@stashsuite)](https://x.com/stashsuite)  
 > 從免費版升級至付費版只需直接覆蓋複製資料夾，透過 `Server Store` 儲存的設定將完整保留。
 
 ---
