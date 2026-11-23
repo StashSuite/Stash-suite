@@ -46,7 +46,7 @@ All 11 Free modules are bundled into a single **`stashSuite`** plugin folder for
 - **Suite Core**: Shared foundation, 10 dark/glass themes (default: Midnight), unified tabbed settings panel, direct external media player launch
 - **Server Store**: Automatically syncs plugin settings to your Stash server across browsers and devices
 - **Quick Genres**: 1-click sort bar, open-history drawer, favorite boards, performer face strip, and enhanced Performer Drawer (photo-first filter, alias search, inline rating, random pick)
-- **Light Scene Cards**: Fast, lightweight scene cards (Tall / Side / Cover layouts, 16 customizable fields, **direct source digest hover preview with no pre-generation required** by default)
+- **Light Scene Cards**: Custom scene cards built for smooth browsing even at 100–500 items/page with zero extra per-card API requests (Tall / Side / Cover layouts, 16 customizable fields, **direct source digest hover preview with no pre-generation required** by default)
 - **Scene Card Rarity**: Click-to-open performer cards & performer rating highlight (optional scene card glow effects with 6 themes — OFF by default, toggle anytime in Settings)
 - **Grid Player**: `Shift + Click` scene cards to play up to 9 videos simultaneously (with Smooth mode & fullscreen)
 - **Click Popovers**: Changes card hover popovers to click-to-open
@@ -63,7 +63,7 @@ All 11 Free modules are bundled into a single **`stashSuite`** plugin folder for
 | :--- | :---: | :---: |
 | 10 Themes, Unified Settings & 5 Languages (`Suite Core`) | ✅ | ✅ |
 | Server-side Settings Sync & 7-Day Auto DB Backup | ✅ | ✅ |
-| Ultra-Light Scene Cards, Sharp Covers & Rarity Effects | ✅ | ✅ |
+| Custom Scene Cards (Zero Extra API Calls), Sharp Covers & Rarity Effects | ✅ | ✅ |
 | Quick Genres (Face Strip, Favorite Boards, Performer Drawer) | ✅ | ✅ |
 | 9-Screen `Grid Player`, Search History & Click Popovers | ✅ | ✅ |
 | **Stash Mini Player** (Instant inline playback, rating, tagging, scraping & Watch Later) | — | ✅ |
