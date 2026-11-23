@@ -1104,6 +1104,7 @@
     }
     faceBusy = false;
   }
+  window.__qgQueueFace = queueFace;
   const panelFaceObserver = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {

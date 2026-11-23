@@ -255,10 +255,42 @@
     }
     return box;
   }
+  function paintCachedFace(node, face, size) {
+    const iw = face.iw || 2, ih = face.ih || 3;
+    let s = (0.6 * size) / (face.w * iw);
+    s = Math.max(s, size / iw, size / ih);
+    const left = Math.min(0, Math.max(size - iw * s, size / 2 - face.x * iw * s));
+    const top = Math.min(0, Math.max(size - ih * s, size / 2 - face.y * ih * s));
+    node.style.backgroundImage = "url(" + JSON.stringify(face.img) + ")";
+    node.style.backgroundSize = iw * s + "px " + ih * s + "px";
+    node.style.backgroundPosition = left + "px " + top + "px";
+  }
   function face(item) {
     const f = el("span", "qb-face qb-" + item.type);
-    if (item.image) f.style.backgroundImage = `url("${item.image}")`;
-    else f.textContent = { performer: "人", studio: "社", tag: "#", scene: "▶" }[item.type];
+    if (item.image) {
+      f.style.backgroundImage = `url("${item.image}")`;
+      if (item.type === "performer") {
+        f.style.backgroundPosition = "center 20%";
+        let painted = false;
+        try {
+          const cache = JSON.parse(localStorage.getItem("quickGenres.faces") || "{}");
+          const cf = cache && cache[item.id];
+          if (cf && cf.img === item.image && cf.w) {
+            paintCachedFace(f, cf, 26);
+            painted = true;
+          }
+        } catch {}
+        if (!painted) {
+          requestAnimationFrame(() => {
+            if (typeof window.__qgQueueFace === "function" && f.isConnected) {
+              window.__qgQueueFace({ id: item.id, image_path: item.image }, f, 26);
+            }
+          });
+        }
+      }
+    } else {
+      f.textContent = { performer: "人", studio: "社", tag: "#", scene: "▶" }[item.type];
+    }
     return f;
   }
   let dragging = null,
