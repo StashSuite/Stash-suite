@@ -1,9 +1,0 @@
-name: Grid Player
-description: "カードを Shift＋クリックすると、再生ウィンドウを足して画面いっぱいに整列する（最大 9 つ）。音は押したウィンドウだけ"
-version: "1.0.0"
-ui:
-  requires:
-    - suiteCore
-  javascript:
-    - grid.js
-    - open.js

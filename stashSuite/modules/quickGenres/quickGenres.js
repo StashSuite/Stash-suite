@@ -274,7 +274,7 @@
   // ---- 好きな出演者（評価の高い順、足りなければ出演数の多い順） ----
   const FACE_KEY = "quickGenres.faces", // { 出演者ID: { img, x, y, w, manual } }（x,y は顔の中心、w は顔の幅。画像に対する割合）
     PERF_MAX = 40,
-    MP_BASE = "/plugin/quickGenres/assets/vendor/mediapipe";
+    MP_BASE = "/plugin/stashSuite/assets/quickGenres/vendor/mediapipe";
   function readFaces() {
     try {
       return JSON.parse(localStorage.getItem(FACE_KEY) || "{}") || {};
@@ -722,14 +722,6 @@
     histBtn.title = "最後に開いた順（一瞬でも開いた動画の履歴）";
     histBtn.onclick = () => window.Suite?.toggleHistory?.();
     box.append(histBtn);
-    for (const sw of SWITCHES) {
-      const b = el("button", "qg-switch", sw.label);
-      b.type = "button";
-      b.dataset.type = sw.type;
-      b.title = sw.title + "（もう一度押すと解除）";
-      b.onclick = () => navigate(withCriterion(sw.type, criteria().some((c) => criterionType(c) === sw.type) ? null : sw.value()));
-      box.append(b);
-    }
     // 「この一覧をザッピング」は使わないので出さない（ミニプレイヤーのザッピングも外した）
     const pt = el("button", "qg-panel-toggle", "女優 ▸");
     pt.type = "button";
@@ -753,55 +745,42 @@
   // 1段目：[並び順][Stash のツールバー（左寄せ）][件数] …… [スイッチ][ザッピング]
   // 2段目：顔の帯（全幅）。上のページ送りは隠す（一覧の下に常に出ているため）
   function placeHead(content, toolbar) {
-    const c = content.getBoundingClientRect();
     toolbar.classList.add("qg-toolbar");
-    content.classList.remove("qg-stacked");
+    content.classList.remove("qg-stacked", "qg-tight");
+    const stackBar = content.querySelector(":scope > .qg-stack-bar");
+    if (stackBar) stackBar.remove();
+    sortBox.classList.remove("labels", "compact", "qg-stuck-part");
+    topBox.classList.remove("compact", "qg-stuck-part");
+    // Place sortBox & topBox inside toolbar so native CSS position:sticky moves them together with zero drift
+    if (sortBox.parentElement !== toolbar) toolbar.append(sortBox);
+    if (topBox.parentElement !== toolbar) toolbar.append(topBox);
     toolbar.style.paddingLeft = toolbar.style.paddingRight = "";
-    sortBox.classList.remove("labels", "compact");
-    topBox.classList.remove("compact");
     const tb = toolbar.getBoundingClientRect();
-    const toolbarItemsWidth = [...toolbar.children].reduce((w, x) => w + x.getBoundingClientRect().width + 7, 0);
-    const fitsInline = sortBox.offsetWidth + topBox.offsetWidth + toolbarItemsWidth + 56 <= tb.width && tb.height < 64;
-    let stackBar = content.querySelector(":scope > .qg-stack-bar");
-    if (!fitsInline) {
-      content.classList.add("qg-stacked");
-      if (!stackBar) {
-        stackBar = el("div", "qg-stack-bar");
-        toolbar.after(stackBar);
-      }
-      if (sortBox.parentElement !== stackBar) stackBar.append(sortBox);
-      if (topBox.parentElement !== stackBar) stackBar.append(topBox);
-      sortBox.style.left = sortBox.style.top = topBox.style.top = topBox.style.right = "";
-      const index = content.querySelector(":scope > .pagination-index-container");
-      if (index) {
-        content.classList.remove("qg-index-inline");
-        index.style.left = index.style.top = "";
-      }
-      return;
-    }
-    if (stackBar) {
-      if (sortBox.parentElement !== content) content.append(sortBox);
-      if (topBox.parentElement !== content) content.append(topBox);
-      stackBar.remove();
-    }
-    const padX = 12;
-    const top = toolbar.offsetTop + Math.max(0, Math.round((toolbar.offsetHeight - 34) / 2));
-    sortBox.style.left = Math.round(tb.left - c.left + padX) + "px";
-    sortBox.style.top = top + "px";
-    topBox.style.right = Math.round(Math.max(padX, c.right - tb.right + padX)) + "px";
-    topBox.style.top = top + "px";
-    toolbar.style.paddingLeft = Math.round(sortBox.offsetWidth + padX + 10) + "px";
-    toolbar.style.paddingRight = Math.round(topBox.offsetWidth + padX + 10) + "px";
+    const toggle = content.querySelector(":scope > .sidebar-toggle-button-container")?.getBoundingClientRect();
+    const leftIn = Math.max(10, toggle ? Math.round(toggle.right - tb.left + 8) : 10);
+    const rightIn = 10;
+    sortBox.style.left = leftIn + "px";
+    sortBox.style.right = "auto";
+    sortBox.style.top = "50%";
+    sortBox.style.transform = "translateY(-50%)";
+    topBox.style.left = "auto";
+    topBox.style.right = rightIn + "px";
+    topBox.style.top = "50%";
+    topBox.style.transform = "translateY(-50%)";
+    toolbar.style.paddingLeft = Math.round(leftIn + sortBox.offsetWidth + 10) + "px";
+    toolbar.style.paddingRight = Math.round(rightIn + topBox.offsetWidth + 10) + "px";
+    const c = content.getBoundingClientRect();
     const index = content.querySelector(":scope > .pagination-index-container");
     if (index) {
       content.classList.remove("qg-index-inline");
-      const last = Math.max(0, ...[...toolbar.children].map((x) => x.getBoundingClientRect().right));
+      const flow = [...toolbar.children].filter((x) => !x.matches(".qg-sorts,.qg-top"));
+      const last = Math.max(0, ...flow.map((x) => x.getBoundingClientRect().right));
       const stats = index.querySelector(".paginationIndex"),
         range = document.createRange();
       if (stats) range.selectNodeContents(stats);
       const need = (stats ? [...range.getClientRects()].reduce((w, r) => w + r.width, 0) : 240) + 24;
-      const room = tb.right - padX - topBox.offsetWidth - last;
-      if (toolbar.getBoundingClientRect().height < 64 && room > need) {
+      const room = tb.right - rightIn - topBox.offsetWidth - last;
+      if (toolbar.getBoundingClientRect().height < 60 && room > need) {
         content.classList.add("qg-index-inline");
         index.style.left = Math.round(last - c.left + 12) + "px";
         index.style.top = toolbar.offsetTop + Math.max(0, Math.round((toolbar.offsetHeight - 20) / 2)) + "px";
@@ -1104,7 +1083,6 @@
     }
     faceBusy = false;
   }
-  window.__qgQueueFace = queueFace;
   const panelFaceObserver = new IntersectionObserver(
     (entries) => {
       for (const e of entries) {
@@ -1356,7 +1334,8 @@
     } else markPanelActive();
   }
 
-  window.addEventListener("storage", (e) => { if (!e.key || e.key === "suite.prefs" || e.key === "viewMode.mode") { schedule(); if (panel) renderPanel(); } });
+  window.addEventListener("storage", (e) => { if (!e.key || e.key === "suite.prefs" || e.key === "viewMode.mode" || e.key === "suite.lang") { headSig = ""; schedule(); if (panel) renderPanel(); } });
+  document.addEventListener("transitionend", (e) => { if (e.target instanceof Element && e.target.closest(".sidebar,.sidebar-pane")) { headSig = ""; schedule(); } }, true);
   // ---- 差し込み（React の再描画で消えたら入れ直す） ----
   let lastHref = "";
   let headSig = "";
@@ -1385,15 +1364,15 @@
       topBox = sortBox = band = null;
     } else {
       content.classList.add("qg-host");
-      if (!sortBox || !content.contains(sortBox)) {
+      if (!sortBox || !toolbar.contains(sortBox)) {
         sortBox?.remove();
         sortBox = buildSort();
-        content.append(sortBox);
+        toolbar.append(sortBox);
       }
-      if (!topBox || !content.contains(topBox)) {
+      if (!topBox || !toolbar.contains(topBox)) {
         topBox?.remove();
         topBox = buildTop();
-        content.append(topBox);
+        toolbar.append(topBox);
         resizeObserver.disconnect();
         resizeObserver.observe(content);
       }
@@ -1408,7 +1387,8 @@
       renderSort();
       renderTop();
       // 位置合わせは寸法を測るので重い（500件の一覧だと1回で数十〜数百ms）。幅・URL・ツールバーの中身が変わった時だけ
-      const sig = [contentWidth, location.href, toolbar.childElementCount, toolbar.textContent.length, content.querySelector(":scope > .pagination-index-container")?.textContent || ""].join("|");
+      const sbW = Math.round(document.querySelector(".sidebar")?.getBoundingClientRect().width || 0);
+      const sig = [contentWidth, sbW, location.href, toolbar.childElementCount, toolbar.textContent.length, content.querySelector(":scope > .pagination-index-container")?.textContent || ""].join("|");
       if (sig !== headSig) {
         headSig = sig;
         placeHead(content, toolbar);
@@ -1474,10 +1454,10 @@
         // 止める前の横の位置と幅を、そのまま固定に引き継ぐ。元の書き込み（並べ方を置いた時の left など）は覚えておいて、戻す時に戻す
         // 帯の中での高さ（帯の上端からの距離）を保つ。以前は上端に揃えて 8px 跳ねていた
         const r = part.getBoundingClientRect(),
-          off = Number(part.dataset.qgOff) || 0;
+          off = Math.max(0, Math.round((bar.offsetHeight - 34) / 2));
         part.dataset.qgKeep = JSON.stringify({ left: part.style.left, right: part.style.right, width: part.style.width, top: part.style.top });
         part.classList.add("qg-stuck-part");
-        Object.assign(part.style, { left: r.left + "px", right: "auto", width: r.width + "px", top: NAV_H + off + "px" });
+        Object.assign(part.style, { left: Math.round(r.left) + "px", right: "auto", width: "", top: NAV_H + off + "px" });
       } else if (!stuck && part.classList.contains("qg-stuck-part")) unstick(part);
       // 貼り付いていない間に、帯の上端からの距離を覚えておく
       if (!stuck && !part.classList.contains("qg-stuck-part")) part.dataset.qgOff = String(Math.round(part.getBoundingClientRect().top - bar.getBoundingClientRect().top));

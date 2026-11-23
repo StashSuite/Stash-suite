@@ -26,14 +26,14 @@
 
 ---
 
-## 무료 버전 포함 플러그인 (11개)
+## 무료 버전 포함 기능 (`stashSuite` 단일 폴더 통합 · 총 11개)
 
-- **Suite Core**: 공통 기반, 10종 다크/글래스 테마, 탭 방식 통합 설정 화면, 외부 플레이어 직접 실행
-- **Server Store**: 모든 플러그인 설정을 Stash 서버에 자동 동기화 (기기·브라우저 간 유지)
-- **Quick Genres**: 원클릭 정렬 바, 미시청/★4+/신규 스위치, 즐겨찾기 보드, 얼굴 스트립, 강화된 출연자 패널(사진 우선, 별명 검색, 즉시 평점, 랜덤 선택)
-- **Light Scene Cards**: 초경량 씬 카드 (세로/가로/표지 전용 레이아웃, 16개 항목 커스텀, 호버 미리보기)
-- **Scene Card Rarity**: 평점에 따른 카드 연출 효과(6종 테마) 및 클릭식 출연자 카드
-- **Grid Player**: 카드를 `Shift + 클릭`하여 최대 9개 화면 동시 재생
+- **Suite Core**: 공통 기반, 10종 다크/글래스 테마(기본: 미드나잇), 탭 방식 통합 설정 화면, 외부 플레이어 직접 실행
+- **Server Store**: 모든 설정을 Stash 서버에 자동 동기화 (기기·브라우저 간 유지)
+- **Quick Genres**: 원클릭 정렬 바, 시청 기록 서랍, 즐겨찾기 보드, 얼굴 스트립, 강화된 출연자 패널(사진 우선, 별명 검색, 즉시 평점, 랜덤 선택)
+- **Light Scene Cards**: 초경량 씬 카드 (세로/가로/표지 전용 레이아웃, 16개 항목 커스텀, 사전 생성 불필요한 **원본 영상 직접 다이제스트 호버 미리보기** 기본 적용)
+- **Scene Card Rarity**: 출연자 평점 색상 표시 및 클릭식 출연자 카드 (씬 카드 발광 연출 6종은 기본 꺼짐, 설정에서 즉시 켜기/끄기 가능)
+- **Grid Player**: 카드를 `Shift + 클릭`하여 최대 9개 화면 동시 재생 (부드럽게 모드·전체 화면 지원)
 - **Click Popovers**: 카드의 태그·출연자 팝업을 클릭 열기/닫기 방식으로 변경
 - **Search History**: 검색창에 최근 검색 기록 표시
 - **Auto Backup**: 7일마다 Stash DB 자동 안전 백업
@@ -66,7 +66,7 @@
 ## 설치 방법 (3단계)
 
 1. 이 저장소의 **Code → Download ZIP** (또는 Releases 최신 ZIP)을 다운로드하여 압축을 풉니다.
-2. 압축을 푼 **각 플러그인 폴더**(`suiteCore`, `serverStore`, `lightCards` 등)를 Stash의 `plugins` 폴더에 복사합니다.
+2. 압축을 푼 **`stashSuite` 폴더(1개 폴더)**를 Stash의 `plugins` 폴더에 복사합니다 (Premium 버전은 `stashSuite`, `libraryHub`, `splitParts` 3개 폴더).
    - **Windows 기본 경로**: `C:\Users\<사용자명>\.stash\plugins\`
    - **macOS / Linux 기본 경로**: `~/.stash/plugins/`
    - **Docker**: 컨테이너의 `/root/.stash/plugins`에 마운트된 호스트 폴더

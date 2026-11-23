@@ -11,7 +11,7 @@ Copyright (c) 2026 Stash Suite Author. All rights reserved.
 3. 免責事項
    本ソフトウェアは「現状有姿（AS IS）」で提供されます。本ソフトウェアの利用により生じたいかなる損害（データ損失、外部サイト仕様変更による動作停止等を含む）についても、作者は一切の責任を負いません。大切なデータベースは事前にバックアップを取った上でご利用ください。
 4. サードパーティソフトウェア
-   本ソフトウェアに同梱されているオープンソースライブラリのライセンス条件については、同梱の THIRD_PARTY_NOTICES.txt をご参照ください。
+   Premium版に同梱されているオープンソースライブラリのライセンス条件については、同梱の THIRD_PARTY_NOTICES.txt をご参照ください。
 
 ----------------------------------------------------------------------
 
@@ -24,4 +24,4 @@ Copyright (c) 2026 Stash Suite Author. All rights reserved.
 3. Disclaimer of Warranty
    THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THIS SOFTWARE. Always back up your Stash database before running batch operations.
 4. Third-Party Software
-   Open-source libraries bundled with this software are governed by their respective licenses as listed in THIRD_PARTY_NOTICES.txt.
+   Open-source libraries bundled with the Premium Edition are governed by their respective licenses as listed in THIRD_PARTY_NOTICES.txt.

@@ -127,7 +127,7 @@
     const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/i.test(location.hostname);
     if (isLocal) {
       try {
-        const d = await S.gql('mutation($a:Map){runPluginOperation(plugin_id:"suiteCore",args:$a)}', { a: { mode: "open_external", id: String(id) } });
+        const d = await S.gql('mutation($a:Map){runPluginOperation(plugin_id:"stashSuite",args:$a)}', { a: { mode: "open_external", id: String(id) } });
         if (d?.runPluginOperation === "ok") return;
       } catch {}
     }

@@ -1,6 +1,0 @@
-name: Auto Backup
-description: Stash を開いた時、前回から7日以上たっていればデータベースのバックアップを取る（保存先は 設定→システム の「バックアップの保存先」）
-version: "1.0.0"
-ui:
-  javascript:
-    - autoBackup.js

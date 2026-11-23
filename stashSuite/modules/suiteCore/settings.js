@@ -78,7 +78,7 @@
       row("カードの形", choice([["tall", "縦型"], ["side", "横型"], ["cover", "表紙だけ"]], st.layout, (v) => set({ layout: v }))),
       row("題名の行数", choice([[1, "1行"], [2, "2行"], [3, "3行"]], st.titleLines, (v) => set({ titleLines: Number(v) }))),
       row("表紙にマウスを乗せたらプレビュー", toggle(st.preview, (v) => set({ preview: v }))),
-      row("プレビューの種類", choice([["video", "プレビュー動画"], ["scrub", "場面送り"], ["source", "元の動画で場面送り"]], st.previewMode, (v) => set({ previewMode: v }))),
+      row("プレビューの種類", choice([["source", "元動画を直接再生（生成不要）"], ["video", "生成済みプレビュー動画"], ["scrub", "場面送り"]], st.previewMode, (v) => set({ previewMode: v })), "元動画を直接再生なら事前生成なしで複数箇所を自動プレビューできます。生成済みプレビューは軽い反面、ファイルが大量にある場合は生成に時間がかかります"),
       row("止めておくと数か所を自動再生", toggle(st.autoTour, (v) => set({ autoTour: v }))),
       row("自動再生までの秒数", choice([0, 0.3, 0.5, 0.8, 1, 1.5, 2].map((n) => [n, n + "秒"]), st.autoTourDelay, (v) => set({ autoTourDelay: Number(v) }))),
     );
@@ -155,11 +155,12 @@
     if (!window.__sceneCardRarity && !document.getElementById("scr-launch")) return null;
     const KEY = "stash.cardRarity.v1";
     const s = section("レアリティ（カードの演出）", "評価で光り方が変わる演出。保存すると再読み込みします。");
-    const v = { sceneEnabled: true, actorsEnabled: true, actorScope: "female", showUnratedActors: false, theme: "prism", intensity: "normal", motion: "top", dimLow: true, respectReducedMotion: false, ...readJSON(KEY, {}) };
+    const v = { sceneEnabled: false, actorsEnabled: true, actorScope: "female", showUnratedActors: false, theme: "prism", intensity: "normal", motion: "top", dimLow: true, respectReducedMotion: false, ...readJSON(KEY, {}) };
     const set = (p) => {
       Object.assign(v, p);
       writeJSON(KEY, v);
-      markReload();
+      if (window.StashCardRarity?.update) window.StashCardRarity.update(p);
+      else markReload();
     };
     s.append(
       row("シーンカードを光らせる", toggle(v.sceneEnabled, (x) => set({ sceneEnabled: x }))),

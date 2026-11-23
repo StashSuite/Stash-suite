@@ -170,9 +170,9 @@
     const pm = el("div", "lc-row");
     pm.append(
       el("span", "lc-label", "プレビュー"),
-      radio("previewMode", "video", "動画", s.previewMode),
+      radio("previewMode", "source", "元動画を直接再生（生成不要）", s.previewMode),
+      radio("previewMode", "video", "生成済みプレビュー（大量だと生成に時間）", s.previewMode),
       radio("previewMode", "scrub", "マウスの左右で場面送り", s.previewMode),
-      radio("previewMode", "source", "元の動画で場面送り（細かいが遅い）", s.previewMode),
     );
     const tour = el("label", "lc-check-row"),
       ti = el("input");

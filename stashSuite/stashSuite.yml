@@ -1,0 +1,44 @@
+name: Stash Suite (Free)
+description: "All-in-one Stash Suite Free Edition (Light Cards, Quick Genres, Grid Player, Card Rarity, Search History, Sharp Covers, Auto Backup, 10 Themes, 5 Languages)"
+version: "2.0.0"
+ui:
+  javascript:
+    - modules/serverStore/serverStore.js
+    - modules/suiteCore/ng.js
+    - modules/suiteCore/core.js
+    - modules/suiteCore/i18n.js
+    - modules/suiteCore/drag.js
+    - modules/suiteCore/unify.js
+    - modules/suiteCore/theme.js
+    - modules/suiteCore/settings.js
+    - modules/suiteCore/history.js
+    - modules/viewMode/intercept.js
+    - modules/viewMode/mode.js
+    - modules/viewMode/bar.js
+    - modules/lightCards/settings.js
+    - modules/lightCards/card.js
+    - modules/lightCards/toolbar.js
+    - modules/lightCards/drag.js
+    - modules/sceneCardRarity/Stash_Card_Rarity_Highlighter.js
+    - modules/quickGenres/board.js
+    - modules/quickGenres/quickGenres.js
+    - modules/gridPlayer/grid.js
+    - modules/gridPlayer/open.js
+    - modules/clickPopovers/clickPopovers.js
+    - modules/searchHistory/searchHistory.js
+    - modules/autoBackup/autoBackup.js
+    - modules/sharpCovers/sharpCovers.js
+  css:
+    - modules/lightCards/lightCards.css
+    - modules/sceneCardRarity/sceneCardRarity.css
+    - modules/quickGenres/quickGenres.css
+    - modules/clickPopovers/clickPopovers.css
+    - modules/suiteCore/glass.css
+  assets:
+    /quickGenres/vendor: modules/quickGenres/vendor
+    /quickGenres/facecache: modules/quickGenres/facecache
+    /sharpCovers/lib: modules/sharpCovers/lib
+exec:
+  - python
+  - "{pluginDir}/open_external.py"
+interface: raw

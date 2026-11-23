@@ -92,7 +92,7 @@
   }
 
   // ---- 作り直し（Worker に任せる） ----
-  const WORKER_URL = "/plugin/sharpCovers/assets/lib/resizeWorker.js";
+  const WORKER_URL = "/plugin/stashSuite/assets/sharpCovers/lib/resizeWorker.js";
   let workers = [],
     turn = 0,
     seq = 0;

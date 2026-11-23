@@ -1,6 +1,6 @@
 THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 
-Stash Suite bundles the following open-source software components
+The Premium Edition of Stash Suite bundles the following open-source software components
 under quickGenres/vendor/:
 
 ======================================================================

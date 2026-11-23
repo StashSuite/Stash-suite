@@ -1,6 +1,0 @@
-name: Server Store
-description: "Stash Suite（ミニプレイヤー・Quick Genres・タグ重み・Card Rarity）の設定や記録を、ブラウザではなく Stash サーバーに保存します。どのブラウザ・PCから開いても同じ状態になります"
-version: "1.0.0"
-ui:
-  javascript:
-    - serverStore.js

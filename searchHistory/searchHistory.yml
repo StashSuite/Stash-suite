@@ -1,8 +1,0 @@
-name: Search History
-description: 検索窓をクリックすると最近の検索が出る（選ぶともう一度検索、× で1件消す）。履歴は serverStore でサーバーに保存。
-version: "1.0.0"
-ui:
-  requires:
-    - serverStore
-  javascript:
-    - searchHistory.js

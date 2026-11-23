@@ -30,9 +30,9 @@
     titleLines: 2,
     sizes: { tall: 300, side: 340, cover: 190 }, // 形ごとのカードの幅の目安（px）。一覧の上のスライダーで変える
     preview: true, // 表紙にマウスを乗せたらプレビュー
-    previewMode: "video", // video＝プレビュー動画（無ければ場面送り）／scrub＝マウスの左右で場面送り／source＝元の動画で場面送り
+    previewMode: "source", // video＝プレビュー動画（無ければ場面送り）／scrub＝マウスの左右で場面送り／source＝元の動画で場面送り
     autoTour: true, // 場面送りでマウスを止めておくと、数か所を自動で再生
-    autoTourDelay: 1, // マウスを止めてから自動で再生するまでの秒数（0〜2）
+    autoTourDelay: 0.3, // マウスを止めてから自動で再生するまでの秒数（0〜2）
     show: {
       code: true,
       duration: true,

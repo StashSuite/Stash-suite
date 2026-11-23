@@ -1,8 +1,0 @@
-name: Click Popovers
-description: "シーンカードのタグ数ボタンなどのホバーポップアップを「クリックで開く」に変更し、上側に表示する"
-version: "1.0.0"
-ui:
-  javascript:
-    - clickPopovers.js
-  css:
-    - clickPopovers.css

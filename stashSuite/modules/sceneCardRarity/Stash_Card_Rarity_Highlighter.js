@@ -25,7 +25,7 @@
     // 旧設定（glow / animate）からの移行
     const legacyIntensity = { low: "low", normal: "normal", high: "high" }[v.glow];
     return {
-      sceneEnabled: v.sceneEnabled !== false,
+      sceneEnabled: v.sceneEnabled === true,
       actorsEnabled: v.actorsEnabled !== false,
       actorScope: ["female", "female_unknown", "all"].includes(v.actorScope) ? v.actorScope : "female",
       showUnratedActors: v.showUnratedActors === true,
@@ -258,7 +258,7 @@
   }
   // 出演者（シーンカードの出演者ラベル・ミニプレイヤーの出演者チップ・出演者ホバーカード）にも
   // 同じテーマ・同じ強さの色と光を当てる。作品カードと出演者の演出がずれないよう、正本は同じテーマ表。
-  const PERFORMER_TARGETS = ":is(a.vsc-performer.scr-performer-enabled,#sp22 a.chip.performer,#sp22-performer-card,#scr-actor-popup)";
+  const PERFORMER_TARGETS = "html[data-scr-actors=\"1\"] :is(a.vsc-performer.scr-performer-enabled,#sp22 a.chip.performer,#sp22-performer-card,#scr-actor-popup)";
   // テーマ表をCSSに変換する（スタイルの正本はこの表。sceneCardRarity.css は共通部分のみ）
   function buildThemeCss(defs = THEME_DEFS) {
     const out = [];
@@ -412,6 +412,7 @@
       root.dataset.scrTheme = settings.theme;
       root.dataset.scrIntensity = settings.intensity;
       root.dataset.scrMotion = settings.motion;
+      root.dataset.scrActors = settings.actorsEnabled ? "1" : "0";
       root.classList.toggle("scr-dim-low", settings.dimLow);
       root.classList.toggle("scr-respect-rm", settings.respectReducedMotion);
       renderThemeButtons();
@@ -679,8 +680,8 @@
       card.dataset.scrTier = String(ratingTier(raw));
       card.dataset.scrRating100 = Number.isFinite(raw) ? String(raw) : "";
       const actors = new Map((entry?.performers || []).map((a) => [String(a.id), a]));
-      for (const a of card.querySelectorAll("a.vsc-performer[href]")) {
-        const actorId = objectId(a.href, "performers", location.href),
+      for (const a of card.querySelectorAll("a.vsc-performer")) {
+        const actorId = a.dataset.performerId || objectId(a.getAttribute("href") || a.dataset.suiteHref || "", "performers", location.href),
           actor = actors.get(actorId);
         if (!settings.actorsEnabled || !actor || !actorAllowed(actor, settings.actorScope)) {
           clearActor(a);
@@ -1036,6 +1037,7 @@
       openSettings: () => (panel.style.display = "block"),
       setTheme: (theme) => update({ theme }),
       setIntensity: (intensity) => update({ intensity }),
+      update: (patch) => update(patch),
       core: Core,
     };
     configure();

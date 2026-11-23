@@ -26,14 +26,14 @@
 
 ---
 
-## 免費版收錄外掛（11 個）
+## 免費版收錄功能（整合於單一 `stashSuite` 資料夾・共 11 項）
 
-- **Suite Core**：共用核心、10 種深色／毛玻璃主題、分頁式整合設定介面、直接呼叫外部播放器
-- **Server Store**：將所有外掛設定自動同步至 Stash 伺服器，跨裝置・跨瀏覽器無縫沿用
-- **Quick Genres**：一鍵排序列、未觀看 / ★4+ / 新上架開關、最愛看板、演員臉部條列、強化版演員面板（優先顯示有照片、別名搜尋、即時評分、隨機抽選）
-- **Light Scene Cards**：超輕量場景卡片（直式／橫式／純封面版面、16 項自訂欄位、懸停預覽）
-- **Scene Card Rarity**：依評分顯示卡片視覺特效（6 種主題）與點擊式演員卡片
-- **Grid Player**：按住 `Shift + 點擊` 場景卡片，最多可同時播放 9 個畫面
+- **Suite Core**：共用核心、10 種深色／毛玻璃主題（預設：午夜藍）、分頁式整合設定介面、直接呼叫外部播放器
+- **Server Store**：將所有設定自動同步至 Stash 伺服器，跨裝置・跨瀏覽器無縫沿用
+- **Quick Genres**：一鍵排序列、觀看歷史抽屜、最愛看板、演員臉部條列、強化版演員面板（優先顯示有照片、別名搜尋、即時評分、隨機抽選）
+- **Light Scene Cards**：超輕量場景卡片（直式／橫式／純封面版面、16 項自訂欄位、預設免預先生成的**原片直接精華懸停預覽**）
+- **Scene Card Rarity**：演員評分著色與點擊式演員卡片（場景卡片發光特效預設關閉，可於設定即時開關）
+- **Grid Player**：按住 `Shift + 點擊` 場景卡片，最多可同時播放 9 個畫面（支援流暢模式與全螢幕）
 - **Click Popovers**：將卡片標籤／演員浮動視窗改為點擊開關
 - **Search History**：搜尋列顯示近期搜尋紀錄
 - **Auto Backup**：每 7 天自動安全備份 Stash 資料庫
@@ -66,7 +66,7 @@
 ## 安裝步驟（3 步驟）
 
 1. 點擊本儲存庫的 **Code → Download ZIP**（或從 Releases 下載最新 ZIP）並解壓縮。
-2. 將裡面的**各外掛資料夾**（`suiteCore`、`serverStore`、`lightCards` 等）複製到 Stash 的 `plugins` 資料夾：
+2. 將裡面的 **`stashSuite` 資料夾（僅 1 個資料夾）** 複製到 Stash 的 `plugins` 資料夾（Premium 版為 `stashSuite`、`libraryHub`、`splitParts` 共 3 個資料夾）：
    - **Windows 預設路徑**：`C:\Users\<使用者名稱>\.stash\plugins\`
    - **macOS / Linux 預設路徑**：`~/.stash/plugins/`
    - **Docker 環境**：對應至容器 `/root/.stash/plugins` 的主機資料夾

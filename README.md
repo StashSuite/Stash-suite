@@ -3,7 +3,7 @@
 **English** | [日本語](./README_JA.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [한국어](./README_KO.md)
 
 A drop-in plugin suite that upgrades [StashApp](https://stashapp.cc/)'s browsing, playback, library organization, and reading experience — optimized for large **JAV, local video, and manga / doujinshi** collections.  
-No external Python packages (`pip`) or extra servers required — just copy the folders into your Stash `plugins` directory.
+No external Python packages (`pip`) or extra servers required — just copy **1 folder (`stashSuite`)** into your Stash `plugins` directory.
 
 - **5 Languages Built-in**: English, 日本語 (Japanese), 繁體中文 (Traditional Chinese), 简体中文 (Simplified Chinese), 한국어 (Korean)
 - **Cross-platform**: Windows, macOS, Linux, and Docker
@@ -39,14 +39,16 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 
 ---
 
-## Included Plugins in Free Edition (11)
+## Included Modules in Free Edition (All-in-One `stashSuite` Folder)
 
-- **Suite Core**: Shared foundation, 10 dark/glass themes, unified tabbed settings panel, direct external media player launch
+All 11 Free modules are bundled into a single **`stashSuite`** plugin folder for effortless installation:
+
+- **Suite Core**: Shared foundation, 10 dark/glass themes (default: Midnight), unified tabbed settings panel, direct external media player launch
 - **Server Store**: Automatically syncs plugin settings to your Stash server across browsers and devices
-- **Quick Genres**: 1-click sort bar, Unwatched / ★4+ / New switches, favorite boards, performer face strip, and enhanced Performer Drawer (photo-first filter, alias search, inline rating, random pick)
-- **Light Scene Cards**: Fast, lightweight scene cards (Tall / Side / Cover layouts, 16 customizable fields, hover preview)
-- **Scene Card Rarity**: Rating-based card visual effects (6 themes) & click-to-open performer cards
-- **Grid Player**: `Shift + Click` scene cards to play up to 9 videos simultaneously
+- **Quick Genres**: 1-click sort bar, open-history drawer, favorite boards, performer face strip, and enhanced Performer Drawer (photo-first filter, alias search, inline rating, random pick)
+- **Light Scene Cards**: Fast, lightweight scene cards (Tall / Side / Cover layouts, 16 customizable fields, **direct source digest hover preview with no pre-generation required** by default)
+- **Scene Card Rarity**: Click-to-open performer cards & performer rating highlight (optional scene card glow effects with 6 themes — OFF by default, toggle anytime in Settings)
+- **Grid Player**: `Shift + Click` scene cards to play up to 9 videos simultaneously (with Smooth mode & fullscreen)
 - **Click Popovers**: Changes card hover popovers to click-to-open
 - **Search History**: Recent search dropdown in the search box
 - **Auto Backup**: Automatic Stash database backup every 7 days
@@ -79,12 +81,14 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 ## Installation (3 Steps)
 
 1. Download the latest release ZIP (or click **Code → Download ZIP** on this repository) and extract it.
-2. Copy all **plugin folders** (`suiteCore`, `serverStore`, `lightCards`, etc.) into your Stash `plugins` directory:
+2. Copy the **`stashSuite`** folder into your Stash `plugins` directory *(Premium Edition uses 3 folders: `stashSuite`, `libraryHub`, `splitParts`)*:
    - **Windows (default)**: `C:\Users\<Username>\.stash\plugins\`
    - **macOS / Linux (default)**: `~/.stash/plugins/`
    - **Docker**: Host folder mapped to `/root/.stash/plugins`
    - *(You can check your `plugins` path in Stash under **Settings → System** or `config.yml`.)*
 3. Open Stash, go to **Settings → Plugins → Reload Plugins**, then refresh the page (`F5`).
+
+> **Upgrading from an older multi-folder version?** Delete the old individual folders (`suiteCore`, `serverStore`, `lightCards`, `quickGenres`, etc.) from `plugins` before copying `stashSuite`. Your saved settings are automatically migrated.
 
 ---
 
@@ -100,7 +104,7 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 
 - **Where are settings saved?**  
   `Server Store` saves your settings directly to your Stash server, so they persist across browsers and devices.
-- **Can I disable individual plugins?**  
-  Yes — toggle any plugin under **Settings → Plugins** (keep `Suite Core` and `Server Store` enabled as shared dependencies).
+- **Can I toggle individual features?**  
+  Yes — open the **Settings (gear)** button in the top navigation bar to toggle Light Scene Cards, hover preview mode, Card Rarity glow, Grid Player, Actress Panel, View Mode, and more in real time.
 - **License**  
   Personal use only. Redistribution or re-uploading is prohibited. See [LICENSE.txt](./LICENSE.txt) and [THIRD_PARTY_NOTICES.txt](./THIRD_PARTY_NOTICES.txt) for details.

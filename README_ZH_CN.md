@@ -26,14 +26,14 @@
 
 ---
 
-## 免费版收录插件（11 个）
+## 免费版收录功能（整合于单个 `stashSuite` 文件夹・共 11 项）
 
-- **Suite Core**：共用核心、10 种深色／毛玻璃主题、标签式统一设置面板、直接调用外部播放器
-- **Server Store**：将所有插件设置自动同步至 Stash 服务器，跨设备・跨浏览器无缝保留
-- **Quick Genres**：一键排序栏、未观看 / ★4+ / 新上架开关、收藏看板、演员面部横条、增强版演员抽屉（有图优先、别名搜索、即时评分、随机抽取）
-- **Light Scene Cards**：超轻量场景卡片（竖版／横版／纯封面布局、16 项自定义显示、悬停预览）
-- **Scene Card Rarity**：根据评分呈现卡片视觉特效（6 种主题）与点击式演员卡片
-- **Grid Player**：按住 `Shift + 点击` 场景卡片，最多支持 9 画面同时播放
+- **Suite Core**：共用核心、10 种深色／毛玻璃主题（默认：午夜蓝）、标签式统一设置面板、直接调用外部播放器
+- **Server Store**：将所有设置自动同步至 Stash 服务器，跨设备・跨浏览器无缝保留
+- **Quick Genres**：一键排序栏、观看历史抽屉、收藏看板、演员面部横条、增强版演员抽屉（有图优先、别名搜索、即时评分、随机抽取）
+- **Light Scene Cards**：超轻量场景卡片（竖版／横版／纯封面布局、16 项自定义显示、默认免预先生成的**原片直接精华悬停预览**）
+- **Scene Card Rarity**：演员评分着色与点击式演员卡片（场景卡片发光特效默认关闭，可在设置实时开关）
+- **Grid Player**：按住 `Shift + 点击` 场景卡片，最多支持 9 画面同时播放（支持流畅模式与全屏）
 - **Click Popovers**：将卡片标签／演员弹窗改为点击开关
 - **Search History**：搜索框显示最近搜索记录
 - **Auto Backup**：每 7 天自动安全备份 Stash 数据库
@@ -66,7 +66,7 @@
 ## 安装步骤（3 步）
 
 1. 点击本仓库的 **Code → Download ZIP**（或从 Releases 下载最新 ZIP）并解压。
-2. 将里面的**各插件文件夹**（`suiteCore`、`serverStore`、`lightCards` 等）复制到 Stash 的 `plugins` 目录：
+2. 将里面的 **`stashSuite` 文件夹（仅 1 个文件夹）** 复制到 Stash 的 `plugins` 目录（Premium 版为 `stashSuite`、`libraryHub`、`splitParts` 共 3 个文件夹）：
    - **Windows 默认路径**：`C:\Users\<用户名>\.stash\plugins\`
    - **macOS / Linux 默认路径**：`~/.stash/plugins/`
    - **Docker 环境**：映射到容器 `/root/.stash/plugins` 的宿主机目录

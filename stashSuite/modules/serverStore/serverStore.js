@@ -7,7 +7,7 @@
 // 保存先は Stash の設定（config.yml の plugins.serverStore.data、JSON 文字列1つ）。
 (function () {
   if (window.ServerStore) return;
-  const PLUGIN = "serverStore";
+  const PLUGIN = "stashSuite";
   // 同期するキー（前方一致）。キャッシュ（作り直せる物）は同期しない
   const PREFIXES = ["stashMiniPlayer.", "stashPopupPlayer.", "quickGenres.", "stash.tagWeightedRecommendations.", "stash.cardRarity.", "lightCards.", "libraryHub.", "mangaViewer.", "viewMode.", "searchHistory.", "myHome.", "suite."];
   // 顔の記憶（出演者ごとにサーバーへ別保存）／整備ハブの「元に戻す」（反映前のデータ。大きく、ブラウザごとで足りる）
@@ -27,10 +27,10 @@
       keepalive: !!opts.keepalive,
     }).then((r) => r.json());
   }
-  const READ = 'query{configuration{plugins(include:["' + PLUGIN + '"])}}';
+  const READ = 'query{configuration{plugins(include:["stashSuite","serverStore"])}}';
   const parse = (cfg) => {
     try {
-      const d = cfg?.data?.configuration?.plugins?.[PLUGIN]?.data;
+      const d = cfg?.data?.configuration?.plugins?.[PLUGIN]?.data || cfg?.data?.configuration?.plugins?.serverStore?.data;
       return d ? JSON.parse(d) || {} : {};
     } catch {
       return {};
