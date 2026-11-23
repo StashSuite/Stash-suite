@@ -12,6 +12,8 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 
 ![Stash Suite Live Demo](./docs/images/demo_preview.gif)
 
+*All videos, comics, and portraits shown in screenshots and demos are sample media for demonstration only. No media files are included.*
+
 ---
 
 ## Screenshots
