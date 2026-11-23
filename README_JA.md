@@ -26,6 +26,10 @@
 | :---: | :---: |
 | ![漫画ビューア](./docs/images/05_manga_viewer.jpg) | ![設定画面](./docs/images/03_settings.jpg) |
 
+| 最大9画面同時再生 Grid Player（Free版） | Library Hub 整備ハブ（Premium版） |
+| :---: | :---: |
+| ![グリッドプレイヤー](./docs/images/07_grid_player.jpg) | ![整備ハブ](./docs/images/08_library_hub.jpg) |
+
 > **再生体験の比較**：標準のページ遷移 vs Stash Mini Player（その場即再生）  
 > ![Before / After 再生比較](./docs/images/00_compare_player_before_after.jpg)
 

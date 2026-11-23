@@ -26,6 +26,10 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 | :---: | :---: |
 | ![Manga Viewer](./docs/images/05_manga_viewer.jpg) | ![Unified Settings](./docs/images/03_settings.jpg) |
 
+| 9-Screen Grid Player (Free) | Library Hub — Batch Organizer (Premium) |
+| :---: | :---: |
+| ![Grid Player](./docs/images/07_grid_player.jpg) | ![Library Hub](./docs/images/08_library_hub.jpg) |
+
 > **Instant Inline Playback**: Compare Default Stash vs. Stash Mini Player  
 > ![Before and After Player](./docs/images/00_compare_player_before_after.jpg)
 
