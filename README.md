@@ -10,6 +10,8 @@ No external Python packages (`pip`) or extra servers required — just copy the 
 
 ![Before and After: Default Stash vs Stash Suite](./docs/images/00_compare_grid_before_after.jpg)
 
+![Stash Suite Live Demo](./docs/images/demo_preview.gif)
+
 ---
 
 ## Screenshots

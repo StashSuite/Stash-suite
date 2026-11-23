@@ -10,6 +10,8 @@
 
 ![Before / After：デフォルトの Stash vs Stash Suite](./docs/images/00_compare_grid_before_after.jpg)
 
+![Stash Suite 動作デモ](./docs/images/demo_preview.gif)
+
 ---
 
 ## スクリーンショット
