@@ -1,4 +1,4 @@
-# Stash Suite (Free版)
+# Stash Suite
 
 [English](./README.md) | **日本語** | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [한국어](./README_KO.md)
 
@@ -20,9 +20,9 @@
 
 | デフォルト Stash のよくある不満 | Stash Suite での解決 |
 | :--- | :--- |
-| プレビュー動画の事前生成に何時間もかかり容量も食う | 事前生成なしで**元動画を直接ホバープレビュー再生**（`Light Scene Cards`・Free版） |
-| 標準 UI が重い・出演者を顔で探せない | **超軽量カード**＋10種テーマ＋顔認識による**「顔の帯」＆強化女優パネル**（Free版） |
-| 検索履歴・左固定のお気に入り・外部プレイヤー直接起動がない | **検索履歴**・ドラッグ＆ドロップ**お気に入りボード**・**外部プレイヤー起動**（Free版） |
+| プレビュー動画の事前生成に何時間もかかり容量も食う | 事前生成なしで**元動画を直接ホバープレビュー再生**（`Light Scene Cards`・無料） |
+| 標準 UI が重い・出演者を顔で探せない | **超軽量カード**＋10種テーマ＋顔認識による**「顔の帯」＆強化女優パネル**（無料） |
+| 検索履歴・左固定のお気に入り・外部プレイヤー直接起動がない | **検索履歴**・ドラッグ＆ドロップ**お気に入りボード**・**外部プレイヤー起動**（無料） |
 | ちょっと中身を見たいだけなのに毎回ページ遷移する | **Stash Mini Player**：カードクリックでその場即再生＆★評価・タグ編集（Premium版） |
 | `-A/-B` や `Disc1/2` の分割ファイルが一覧にバラバラに並ぶ | **Split Parts**：1枚のカードに統合し、1本の時間軸でシームレス連続再生（Premium版） |
 | 一括自動整理が怖い・漫画を見開きで快適に読めない | **Library Hub**（試し引き→バックアップ→元に戻す）＆専用 **Manga Viewer**（Premium版） |
@@ -35,7 +35,7 @@
 | :---: | :---: |
 | ![全体一覧](./docs/images/01_overview.jpg) | ![ミニプレイヤー](./docs/images/02_mini_player.jpg) |
 
-| 強化版 女優パネル（Free版） | 最大9画面同時再生 Grid Player（Free版） |
+| 強化版 女優パネル（無料） | 最大9画面同時再生 Grid Player（無料） |
 | :---: | :---: |
 | ![女優パネル](./docs/images/04_performer_drawer.jpg) | ![グリッドプレイヤー](./docs/images/07_grid_player.jpg) |
 
@@ -52,7 +52,7 @@
 
 ---
 
-## Free版 収録機能（`stashSuite` 1フォルダに全11機能を統合）
+## 収録機能（`stashSuite` 1フォルダに全11機能を統合・無料）
 
 - **Suite Core**：共通基盤・10種の背景テーマ（標準：ミッドナイト）・タブ式統合設定画面・外部プレイヤー直接起動
 - **Server Store**：全機能の設定を Stash サーバーへ自動同期
@@ -68,9 +68,9 @@
 
 ---
 
-## Free版 vs Premium版 比較
+## Stash Suite vs Premium
 
-| 機能 | Free版 | Premium版 |
+| 機能 | Stash Suite（無料） | Premium |
 | :--- | :---: | :---: |
 | 10種のテーマ・統合設定画面・5言語対応（`Suite Core`） | ✅ | ✅ |
 | サーバー自動設定同期・7日ごと DB 自動バックアップ | ✅ | ✅ |
@@ -83,10 +83,10 @@
 | **Tag Weighted Recommendations**（タグの好み重み＋出演者＋未視聴ボーナスおすすめ順） | — | ✅ |
 | **Manga Viewer**（右開き／見開き／慣性スクロール／ウォール表示の専用漫画ビューア） | — | ✅ |
 
-> **Premium版の入手はこちら**：[BOOTH 公式ショップ](https://booth.pm/ja/items/9209264)（Free版も同じページから無料ダウンロード可能）  
+> **Premium版の入手はこちら**：[BOOTH 公式ショップ](https://booth.pm/ja/items/9209264)（無料版も同じページからダウンロード可能）  
 > **最新情報・アップデート告知**：[公式 X (@stashsuite)](https://x.com/stashsuite)  
 > **日本語ガイド（note）**：[Stash Suite 機能紹介](https://note.com/stashsuite/n/n58781edc2f98) ／ [PC初心者向け Stash 導入ガイド](https://note.com/stashsuite/n/n56676724c85b)  
-> Free版から Premium版への移行は、フォルダを上書きコピーするだけです。`Server Store` に保存された設定はそのまま引き継がれます。
+> 通常版（Stash Suite）から Premium版への移行は、フォルダを上書きコピーするだけです。`Server Store` に保存された設定はそのまま引き継がれます。
 
 ---
 

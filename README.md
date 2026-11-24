@@ -1,4 +1,4 @@
-# Stash Suite (Free Edition)
+# Stash Suite
 
 **English** | [日本語](./README_JA.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | [한국어](./README_KO.md)
 
@@ -52,7 +52,7 @@ No external Python packages (`pip`) or extra servers required — just copy **1 
 
 ---
 
-## Included Modules in Free Edition (All-in-One `stashSuite` Folder)
+## Included Modules (All-in-One `stashSuite` Folder)
 
 All 11 Free modules are bundled into a single **`stashSuite`** plugin folder for effortless installation:
 
@@ -70,9 +70,9 @@ All 11 Free modules are bundled into a single **`stashSuite`** plugin folder for
 
 ---
 
-## Free vs. Premium Edition
+## Stash Suite vs. Premium
 
-| Feature | Free Edition | Premium Edition |
+| Feature | Stash Suite (Free) | Premium |
 | :--- | :---: | :---: |
 | 10 Themes, Unified Settings & 5 Languages (`Suite Core`) | ✅ | ✅ |
 | Server-side Settings Sync & 7-Day Auto DB Backup | ✅ | ✅ |

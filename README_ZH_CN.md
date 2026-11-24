@@ -1,4 +1,4 @@
-# Stash Suite (免费版 / Free Edition)
+# Stash Suite
 
 [English](./README.md) | [日本語](./README_JA.md) | [繁體中文](./README_ZH_TW.md) | **简体中文** | [한국어](./README_KO.md)
 
@@ -42,9 +42,9 @@
 
 ---
 
-## Free 免费版 vs. Premium 付费版对比
+## Stash Suite vs. Premium
 
-| 功能项目 | Free 免费版 | Premium 付费版 |
+| 功能项目 | Stash Suite（免费） | Premium |
 | :--- | :---: | :---: |
 | 10 种主题、统一设置界面、5 语言支持（`Suite Core`） | ✅ | ✅ |
 | 服务器自动同步设置、每 7 天自动备份数据库 | ✅ | ✅ |

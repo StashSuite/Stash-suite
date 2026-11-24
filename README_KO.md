@@ -1,4 +1,4 @@
-# Stash Suite (무료 버전 / Free Edition)
+# Stash Suite
 
 [English](./README.md) | [日本語](./README_JA.md) | [繁體中文](./README_ZH_TW.md) | [简体中文](./README_ZH_CN.md) | **한국어**
 
@@ -42,9 +42,9 @@
 
 ---
 
-## Free 무료 버전 vs. Premium 유료 버전 비교
+## Stash Suite vs. Premium
 
-| 기능 | Free 무료 | Premium 유료 |
+| 기능 | Stash Suite (무료) | Premium |
 | :--- | :---: | :---: |
 | 10종 테마, 통합 설정 화면, 5개 언어 지원 (`Suite Core`) | ✅ | ✅ |
 | 서버 자동 설정 동기화, 7일 주기 자동 DB 백업 | ✅ | ✅ |
