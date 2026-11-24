@@ -21,7 +21,7 @@ No external Python packages (`pip`) or extra servers required — just copy **1 
 | Common frustration with default Stash | Solved by Stash Suite |
 | :--- | :--- |
 | Generating hover preview videos takes hours & eats disk space | **Direct video hover preview** with zero pre-generation needed (`Light Scene Cards` — Free) |
-| Heavy default scene grids & hard to browse performers visually | **Ultra-light cards**, 10 themes, face-detected **Performer Face Strip** & Drawer (`Free`) |
+| Heavy default scene grids & hard to browse performers visually | **Customizable scene cards**, 10 themes, face-detected **Performer Face Strip** & Drawer (`Free`) |
 | No search history, pinned sidebar favorites, or direct external player | **Search History**, drag-and-drop **Favorite Board**, & **External Player launcher** (`Free`) |
 | Constant page reloads just to preview, rate, or tag a scene | **Stash Mini Player**: instant inline playback, rating, tagging & Watch Later (`Premium`) |
 | Split files (`-A/-B`, `_1/_2`, `cd1/cd2`) clutter the grid separately | **Split Parts**: auto-groups into 1 card & plays seamlessly on a single timeline (`Premium`) |
