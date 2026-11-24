@@ -356,3 +356,11 @@ html[data-lc-skin="solid"] .lc-card > .lc-ambient { display: none; }
 .ss-panel { background: linear-gradient(160deg, #ffffff1c, #ffffff06 45%, #ffffff0d), #10151dcc !important; -webkit-backdrop-filter: blur(28px) saturate(180%); backdrop-filter: blur(28px) saturate(180%); border-left: 1px solid #ffffff2b !important; box-shadow: inset 1px 0 0 #ffffff26, -16px 0 40px #0007 !important; }
 
 html.suite-grabbing, html.suite-grabbing * { cursor: grabbing !important; user-select: none !important; }
+
+/* === UI/UX Polish v1.0.2: Clean Header & Toolbar mode === */
+html.ss-clean-header nav.navbar a[href*="opencollective"],
+html.ss-clean-header nav.navbar .donate-button,
+html.ss-clean-header nav.navbar button[title*="Donate"],
+html.ss-clean-header nav.navbar a[title*="Donate"],
+html.ss-clean-header nav.navbar a[title*="寄付"] { display: none !important; }
+html.ss-clean-header .filtered-list-toolbar { gap: 4px !important; padding-top: 6px !important; padding-bottom: 6px !important; }

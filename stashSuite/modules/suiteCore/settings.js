@@ -116,6 +116,34 @@
   // 見た目：ページの背景のテーマ・カードのスキン・Light Scene Cards のオンオフ
   function look() {
     const s = section("見た目", "背景のテーマとカードの見た目。その場で反映されます。");
+    const CLEAN_KEY = "stashSuite.cleanHeader";
+    const getClean = () => { try { return localStorage.getItem(CLEAN_KEY) !== "0"; } catch { return true; } };
+    const setClean = (on) => {
+      try { localStorage.setItem(CLEAN_KEY, on ? "1" : "0"); } catch {}
+      document.documentElement.classList.toggle("ss-clean-header", !!on);
+    };
+    setClean(getClean());
+    if (window.LightCards) {
+      const qp = el("div", "ss-inline");
+      const applyOverall = (theme, skin, layout, showKeys, clean) => {
+        S.setTheme?.(theme);
+        setClean(clean);
+        const LC0 = window.LightCards;
+        const curShow = Object.assign({}, LC0.store.get().show || {});
+        for (const k of Object.keys(curShow)) curShow[k] = showKeys.includes(k);
+        for (const k of showKeys) curShow[k] = true;
+        LC0.store.set({ mode: "own", skin, layout, show: curShow });
+        close();
+        open();
+      };
+      qp.append(
+        button("スッキリ鑑賞（おすすめ）", () => applyOverall("midnight", "glass", "tall", ["code", "duration", "studio", "performers", "rating", "resume"], true), true),
+        button("情報フル表示", () => applyOverall("slate", "glass", "tall", ["code", "duration", "studio", "date", "size", "res", "performers", "rating", "plays", "ocounter", "tags", "tagNames", "parts", "organized", "resume"], false)),
+        button("表紙ギャラリー", () => applyOverall("obsidian", "glass", "cover", ["code", "duration", "rating", "resume"], true)),
+      );
+      s.append(row("かんたんプリセット", qp, "テーマ・カードの形・表示項目をワンクリックで一括設定します"));
+    }
+    s.append(row("上部バーをスッキリ表示", toggle(getClean(), (v) => setClean(v)), "寄付ボタンなどの余分な要素を隠し、ツールバーの余白を整えます"));
     const box = el("div", "ss-themes");
     for (const [key, name, bg] of S.THEMES || []) {
       const b = el("button", "ss-theme" + (S.getTheme?.() === key ? " on" : ""));
