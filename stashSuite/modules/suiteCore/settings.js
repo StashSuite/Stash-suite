@@ -140,7 +140,7 @@
         open();
       };
       qp.append(
-        button("スッキリ鑑賞（おすすめ）", () => applyOverall("clean", "midnight", "glass", "tall", ["code", "duration", "studio", "performers", "rating", "resume"], true), curPreset === "clean"),
+        button("スッキリ鑑賞", () => applyOverall("clean", "midnight", "glass", "tall", ["code", "duration", "studio", "performers", "rating", "resume"], true), curPreset === "clean"),
         button("情報フル表示", () => applyOverall("full", "slate", "glass", "tall", ["code", "duration", "studio", "date", "size", "res", "performers", "rating", "plays", "ocounter", "tags", "tagNames", "parts", "organized", "resume"], false), curPreset === "full"),
         button("表紙ギャラリー", () => applyOverall("cover", "obsidian", "glass", "cover", ["code", "duration", "rating", "resume"], true), curPreset === "cover"),
       );
