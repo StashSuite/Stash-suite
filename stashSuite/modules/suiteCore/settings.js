@@ -124,8 +124,11 @@
     };
     setClean(getClean());
     if (window.LightCards) {
+      const PRESET_KEY = "stashSuite.preset";
+      const curPreset = (() => { try { return localStorage.getItem(PRESET_KEY) || "clean"; } catch { return "clean"; } })();
       const qp = el("div", "ss-inline");
-      const applyOverall = (theme, skin, layout, showKeys, clean) => {
+      const applyOverall = (id, theme, skin, layout, showKeys, clean) => {
+        try { localStorage.setItem(PRESET_KEY, id); } catch {}
         S.setTheme?.(theme);
         setClean(clean);
         const LC0 = window.LightCards;
@@ -137,9 +140,9 @@
         open();
       };
       qp.append(
-        button("スッキリ鑑賞（おすすめ）", () => applyOverall("midnight", "glass", "tall", ["code", "duration", "studio", "performers", "rating", "resume"], true), true),
-        button("情報フル表示", () => applyOverall("slate", "glass", "tall", ["code", "duration", "studio", "date", "size", "res", "performers", "rating", "plays", "ocounter", "tags", "tagNames", "parts", "organized", "resume"], false)),
-        button("表紙ギャラリー", () => applyOverall("obsidian", "glass", "cover", ["code", "duration", "rating", "resume"], true)),
+        button("スッキリ鑑賞（おすすめ）", () => applyOverall("clean", "midnight", "glass", "tall", ["code", "duration", "studio", "performers", "rating", "resume"], true), curPreset === "clean"),
+        button("情報フル表示", () => applyOverall("full", "slate", "glass", "tall", ["code", "duration", "studio", "date", "size", "res", "performers", "rating", "plays", "ocounter", "tags", "tagNames", "parts", "organized", "resume"], false), curPreset === "full"),
+        button("表紙ギャラリー", () => applyOverall("cover", "obsidian", "glass", "cover", ["code", "duration", "rating", "resume"], true), curPreset === "cover"),
       );
       s.append(row("かんたんプリセット", qp, "テーマ・カードの形・表示項目をワンクリックで一括設定します"));
     }
